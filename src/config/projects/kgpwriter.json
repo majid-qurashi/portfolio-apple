@@ -58,11 +58,6 @@
       { "name": "README.md", "type": "file" }
     ]
   },
-  "images": [
-    {
-      "src": "https://github.com/majid-qurashi/portfolio-apple/blob/master/src/assets/projects/kgpwriter.png?raw=true",
-      "alt": "Homepage"
-    }
-  ],
+  "images": [],
   "_comment": "Structure reflects React app with frontend src, public assets, backend server.js and main files"
 }

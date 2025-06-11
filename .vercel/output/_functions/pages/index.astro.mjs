@@ -433,7 +433,7 @@ const repoUrl$2 = "https://github.com/yourusername/kgpwriter";
 const liveUrl$1 = "https://kgpwriter.netlify.app";
 const techStack$2 = ["React","Node.js","Express","MongoDB","JWT Authentication","CSS3","HTML5"];
 const structure$2 = {"root":"kgp-writer","children":[{"name":"index.html","type":"file"},{"name":"public","type":"directory","children":[{"name":"favicon.ico","type":"file"},{"name":"manifest.json","type":"file"},{"name":"logo192.png","type":"file"},{"name":"logo512.png","type":"file"}]},{"name":"src","type":"directory","children":[{"name":"App.js","type":"file"},{"name":"index.js","type":"file"},{"name":"components","type":"directory","children":[{"name":"ArticleEditor.js","type":"file"},{"name":"ArticleList.js","type":"file"},{"name":"CommentSection.js","type":"file"},{"name":"Navbar.js","type":"file"}]},{"name":"styles","type":"directory","children":[{"name":"App.css","type":"file"}]}]},{"name":"server.js","type":"file"},{"name":"package.json","type":"file"},{"name":"README.md","type":"file"}]};
-const images$2 = [{"src":"https://kgpwriter.netlify.app/assets/images/screenshot1.png","alt":"Homepage"},{"src":"https://kgpwriter.netlify.app/assets/images/screenshot2.png","alt":"Article Editor"},{"src":"https://kgpwriter.netlify.app/assets/images/screenshot3.png","alt":"Article List"}];
+const images$2 = [];
 const _comment$1 = "Structure reflects React app with frontend src, public assets, backend server.js and main files";
 const kgpwriter = {
   id: id$2,
@@ -518,21 +518,6 @@ const userConfig = {
   // Education Background
   education: [
     {
-      degree: "Diploma of Computer Engineering",
-      major: "Computer Science",
-      institution: "Kashmir Government Polytechnic College Srinagar",
-      location: "Srinagar J&K, India",
-      year: "2020-2023",
-      description: "Relevant coursework: Data Structures, Algorithms, Database Management, Software Engineering, Artificial Intelligence, Computer Networks, Operating Systems, Computer Architecture, Computer Organization, Computer Security, Computer Graphics, Computer Systems, Computer Networks, Operating Systems, Computer Architecture, Computer Organization, Computer Security, Computer Graphics, Computer Systems",
-      images: [
-        {
-          url: "https://kgpsrinagar.edu.in/uploads/gallery/media/S2.jpg",
-          alt: "KGP Srinagar ",
-          description: "KGP Srinagar Campus"
-        }
-      ]
-    },
-    {
       degree: "Bachelor of Technology Computer Science & Engineering",
       major: "Computer Science & Engineering",
       institution: "Government College of Engineering & Technology Safapora Kashmir",
@@ -544,6 +529,21 @@ const userConfig = {
           url: "https://lh3.googleusercontent.com/gps-cs-s/AC9h4nqAarC7nJd3gDxjumhF24WwGtuxQzuOE1oBkqeZ7tjl6_nkLSRJZNNxNPN44c246HvJGuBlhSwXb_N74kNyYyhGMAM8SRlx-ja6O5udJt5D9LfQF7u2qsd0YDo5u48KB3oGWc9onQ=s1360-w1360-h1020",
           alt: "GCET Kashmir ",
           description: "GCET Kashmir Campus"
+        }
+      ]
+    },
+    {
+      degree: "Diploma in Computer Engineering",
+      major: "Computer Science",
+      institution: "Kashmir Government Polytechnic College Srinagar",
+      location: "Srinagar J&K, India",
+      year: "2020-2023",
+      description: "Relevant coursework: Data Structures, Algorithms, Database Management, Software Engineering, Artificial Intelligence, Computer Networks, Operating Systems, Computer Architecture, Computer Organization, Computer Security, Computer Graphics, Computer Systems, Computer Networks, Operating Systems, Computer Architecture, Computer Organization, Computer Security, Computer Graphics, Computer Systems",
+      images: [
+        {
+          url: "https://kgpsrinagar.edu.in/uploads/gallery/media/S2.jpg",
+          alt: "KGP Srinagar ",
+          description: "KGP Srinagar Campus"
         }
       ]
     }
@@ -1460,11 +1460,12 @@ My technical expertise:
 ${userConfig.skills.map((skill) => `- ${skill}`).join("\n")}
 
 My education:
-- ${userConfig.education[0].degree} in ${userConfig.education[0].major}
-- ${userConfig.education[0].institution}, ${userConfig.education[0].location} (${userConfig.education[0].year})
+- ${userConfig.education}
 
 My professional experience:
-${userConfig.experience.map((exp) => `- ${exp.title} at ${exp.company}, ${exp.location} (${exp.period})`).join("\n")}
+${userConfig.experience.map(
+    (exp) => `- ${exp.title} at ${exp.company}, ${exp.location} (${exp.period})`
+  ).join("\n")}
 
 My projects:
 ${userConfig.projects.map((project) => `- ${project.title}: ${project.description}`).join("\n")}
@@ -1567,9 +1568,27 @@ If a question is unrelated to my work or portfolio, say: "That's outside my area
             /* @__PURE__ */ jsx("pre", { className: "whitespace-pre-wrap", children: msg.content })
           ] }) }, index)),
           isTyping && /* @__PURE__ */ jsxs("div", { className: "flex items-center space-x-1", children: [
-            /* @__PURE__ */ jsx("div", { className: "w-2 h-2 bg-green-400 rounded-full animate-bounce", style: { animationDelay: "0ms" } }),
-            /* @__PURE__ */ jsx("div", { className: "w-2 h-2 bg-green-400 rounded-full animate-bounce", style: { animationDelay: "150ms" } }),
-            /* @__PURE__ */ jsx("div", { className: "w-2 h-2 bg-green-400 rounded-full animate-bounce", style: { animationDelay: "300ms" } })
+            /* @__PURE__ */ jsx(
+              "div",
+              {
+                className: "w-2 h-2 bg-green-400 rounded-full animate-bounce",
+                style: { animationDelay: "0ms" }
+              }
+            ),
+            /* @__PURE__ */ jsx(
+              "div",
+              {
+                className: "w-2 h-2 bg-green-400 rounded-full animate-bounce",
+                style: { animationDelay: "150ms" }
+              }
+            ),
+            /* @__PURE__ */ jsx(
+              "div",
+              {
+                className: "w-2 h-2 bg-green-400 rounded-full animate-bounce",
+                style: { animationDelay: "300ms" }
+              }
+            )
           ] }),
           /* @__PURE__ */ jsx("div", { ref: messagesEndRef })
         ] }),

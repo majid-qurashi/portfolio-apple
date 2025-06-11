@@ -1,10 +1,9 @@
-import { useState, useEffect, useRef } from 'react';
-import { FaRegFolderClosed } from 'react-icons/fa6';
-import { userConfig } from '../../config/userConfig';
-import DraggableWindow from './DraggableWindow';
+import { useState, useEffect, useRef } from "react";
+import { userConfig } from "../../config/userConfig";
+import DraggableWindow from "./DraggableWindow";
 
 type Message = {
-  role: 'system' | 'user' | 'assistant';
+  role: "system" | "user" | "assistant";
   content: string;
 };
 
@@ -20,19 +19,19 @@ interface MacTerminalProps {
 
 // Customize these placeholder messages for the input field
 const PLACEHOLDER_MESSAGES = [
-  'Type your question...',
-  'What are your skills?',
-  'Where are you located?',
-  'What projects have you worked on?',
+  "Type your question...",
+  "What are your skills?",
+  "Where are you located?",
+  "What projects have you worked on?",
 ];
 
 export default function MacTerminal({ isOpen, onClose }: MacTerminalProps) {
   const [chatHistory, setChatHistory] = useState<ChatHistory>({
     messages: [],
-    input: '',
+    input: "",
   });
   const [isTyping, setIsTyping] = useState(false);
-  const [placeholder, setPlaceholder] = useState('');
+  const [placeholder, setPlaceholder] = useState("");
   const [currentPlaceholderIndex, setCurrentPlaceholderIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
@@ -82,14 +81,18 @@ Ask me anything!
 `;
 
   const currentDate = new Date();
-  const formattedDate = currentDate.toLocaleDateString('en-US', {
-    month: 'long',
-    day: 'numeric',
-    year: 'numeric',
+  const formattedDate = currentDate.toLocaleDateString("en-US", {
+    month: "long",
+    day: "numeric",
+    year: "numeric",
   });
 
   // Customize the system prompt with your personal information
-  const systemPrompt = `IMPORTANT: You ARE ${userConfig.name} themselves. You must always speak in first-person ("I", "my", "me"). Never refer to "${userConfig.name}" in third-person.
+  const systemPrompt = `IMPORTANT: You ARE ${
+    userConfig.name
+  } themselves. You must always speak in first-person ("I", "my", "me"). Never refer to "${
+    userConfig.name
+  }" in third-person.
 CURRENT DATE: ${formattedDate} - Always use this exact date when discussing the current date/year.
 
 Example responses:
@@ -110,20 +113,30 @@ Core details about me:
 - I was born in ${userConfig.location}
 
 My technical expertise:
-${userConfig.skills.map(skill => `- ${skill}`).join('\n')}
+${userConfig.skills.map((skill) => `- ${skill}`).join("\n")}
 
 My education:
 - ${userConfig.education[0].degree} in ${userConfig.education[0].major}
-- ${userConfig.education[0].institution}, ${userConfig.education[0].location} (${userConfig.education[0].year})
+- ${userConfig.education[0].institution}, ${
+    userConfig.education[0].location
+  } (${userConfig.education[0].year})
 
 My professional experience:
-${userConfig.experience.map(exp => `- ${exp.title} at ${exp.company}, ${exp.location} (${exp.period})`).join('\n')}
+${userConfig.experience
+  .map(
+    (exp) => `- ${exp.title} at ${exp.company}, ${exp.location} (${exp.period})`
+  )
+  .join("\n")}
 
 My projects:
-${userConfig.projects.map(project => `- ${project.title}: ${project.description}`).join('\n')}
+${userConfig.projects
+  .map((project) => `- ${project.title}: ${project.description}`)
+  .join("\n")}
 
 My achievements and competitions:
-${userConfig.competitions.map(comp => `- ${comp.title} (${comp.year}): ${comp.achievement}`).join('\n')}
+${userConfig.competitions
+  .map((comp) => `- ${comp.title} (${comp.year}): ${comp.achievement}`)
+  .join("\n")}
 
 Response rules:
 1. ALWAYS use first-person (I, me, my)
@@ -132,20 +145,22 @@ Response rules:
 4. Use markdown formatting when appropriate
 5. Maintain a friendly, conversational tone
 
-If a question is unrelated to my work or portfolio, say: "That's outside my area of expertise. Feel free to email me at ${userConfig.contact.email} and we can discuss further!"`;
+If a question is unrelated to my work or portfolio, say: "That's outside my area of expertise. Feel free to email me at ${
+    userConfig.contact.email
+  } and we can discuss further!"`;
 
   useEffect(() => {
     setChatHistory((prev) => ({
       ...prev,
       messages: [
         ...prev.messages,
-        { role: 'assistant', content: welcomeMessage },
+        { role: "assistant", content: welcomeMessage },
       ],
     }));
   }, []);
 
   useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [chatHistory.messages]);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -159,28 +174,28 @@ If a question is unrelated to my work or portfolio, say: "That's outside my area
     if (!userInput) return;
 
     setChatHistory((prev) => ({
-      messages: [...prev.messages, { role: 'user', content: userInput }],
-      input: '',
+      messages: [...prev.messages, { role: "user", content: userInput }],
+      input: "",
     }));
 
     setIsTyping(true);
 
     try {
-      const response = await fetch('/api/chat', {
-        method: 'POST',
+      const response = await fetch("/api/chat", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({
           messages: [
-            { role: 'system', content: systemPrompt },
+            { role: "system", content: systemPrompt },
             ...chatHistory.messages,
-            { role: 'user', content: userInput },
+            { role: "user", content: userInput },
           ],
         }),
       });
 
-      if (!response.ok) throw new Error('Failed to get response');
+      if (!response.ok) throw new Error("Failed to get response");
 
       const data = await response.json();
 
@@ -188,7 +203,7 @@ If a question is unrelated to my work or portfolio, say: "That's outside my area
         ...prev,
         messages: [
           ...prev.messages,
-          { role: 'assistant', content: data.message },
+          { role: "assistant", content: data.message },
         ],
       }));
     } catch (error) {
@@ -197,7 +212,7 @@ If a question is unrelated to my work or portfolio, say: "That's outside my area
         messages: [
           ...prev.messages,
           {
-            role: 'assistant',
+            role: "assistant",
             content: `I'm having trouble processing that. Please email me at ${userConfig.contact.email}`,
           },
         ],
@@ -213,47 +228,60 @@ If a question is unrelated to my work or portfolio, say: "That's outside my area
     <DraggableWindow
       title={`${userConfig.website} ⸺ zsh`}
       onClose={onClose}
-      initialPosition={{ 
-        x: Math.floor(window.innerWidth * 0.1), 
-        y: Math.floor(window.innerHeight * 0.1) 
+      initialPosition={{
+        x: Math.floor(window.innerWidth * 0.1),
+        y: Math.floor(window.innerHeight * 0.1),
       }}
       initialSize={{ width: 700, height: 500 }}
       className="bg-black/90 backdrop-blur-sm"
     >
-      <div className='p-1 text-gray-200 font-mono text-sm h-full flex flex-col overflow-hidden'>
-        <div className='flex-1 overflow-y-auto rounded-lg p-1'>
+      <div className="p-1 text-gray-200 font-mono text-sm h-full flex flex-col overflow-hidden">
+        <div className="flex-1 overflow-y-auto rounded-lg p-1">
           {chatHistory.messages.map((msg, index) => (
-            <div key={index} className='mb-2'>
-              {msg.role === 'user' ? (
-                <div className='flex items-start space-x-2'>
-                  <span className='text-green-400 font-bold'>{'>'}</span>
-                  <pre className='whitespace-pre-wrap'>{msg.content}</pre>
+            <div key={index} className="mb-2">
+              {msg.role === "user" ? (
+                <div className="flex items-start space-x-2">
+                  <span className="text-green-400 font-bold">{">"}</span>
+                  <pre className="whitespace-pre-wrap">{msg.content}</pre>
                 </div>
               ) : (
-                <div className='flex items-start space-x-2'>
-                  <span className='text-green-400 font-bold'>${userConfig.website}</span>
-                  <pre className='whitespace-pre-wrap'>{msg.content}</pre>
+                <div className="flex items-start space-x-2">
+                  <span className="text-green-400 font-bold">
+                    ${userConfig.website}
+                  </span>
+                  <pre className="whitespace-pre-wrap">{msg.content}</pre>
                 </div>
               )}
             </div>
           ))}
           {isTyping && (
-            <div className='flex items-center space-x-1'>
-              <div className='w-2 h-2 bg-green-400 rounded-full animate-bounce' style={{ animationDelay: '0ms' }}></div>
-              <div className='w-2 h-2 bg-green-400 rounded-full animate-bounce' style={{ animationDelay: '150ms' }}></div>
-              <div className='w-2 h-2 bg-green-400 rounded-full animate-bounce' style={{ animationDelay: '300ms' }}></div>
+            <div className="flex items-center space-x-1">
+              <div
+                className="w-2 h-2 bg-green-400 rounded-full animate-bounce"
+                style={{ animationDelay: "0ms" }}
+              ></div>
+              <div
+                className="w-2 h-2 bg-green-400 rounded-full animate-bounce"
+                style={{ animationDelay: "150ms" }}
+              ></div>
+              <div
+                className="w-2 h-2 bg-green-400 rounded-full animate-bounce"
+                style={{ animationDelay: "300ms" }}
+              ></div>
             </div>
           )}
           <div ref={messagesEndRef} />
         </div>
-        <form onSubmit={handleSubmit} className='mt-2 rounded-lg p-2'>
-          <div className='flex flex-col sm:flex-row items-start sm:items-center space-y-2 sm:space-y-0 sm:space-x-2'>
-            <span className='whitespace-nowrap text-green-400 font-bold'>{userConfig.website} root %</span>
+        <form onSubmit={handleSubmit} className="mt-2 rounded-lg p-2">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center space-y-2 sm:space-y-0 sm:space-x-2">
+            <span className="whitespace-nowrap text-green-400 font-bold">
+              {userConfig.website} root %
+            </span>
             <input
-              type='text'
+              type="text"
               value={chatHistory.input}
               onChange={handleInputChange}
-              className='w-full sm:flex-1 bg-transparent outline-none text-white placeholder-gray-400'
+              className="w-full sm:flex-1 bg-transparent outline-none text-white placeholder-gray-400"
               placeholder={placeholder}
             />
           </div>

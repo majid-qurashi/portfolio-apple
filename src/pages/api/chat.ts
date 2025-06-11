@@ -1,5 +1,5 @@
-import type { APIRoute } from 'astro';
-import Groq from 'groq-sdk';
+import type { APIRoute } from "astro";
+import Groq from "groq-sdk";
 
 const groq = new Groq({
   apiKey: import.meta.env.GROQ_API_KEY,
@@ -10,10 +10,10 @@ export const POST: APIRoute = async ({ request }) => {
     const body = await request.json();
 
     const completion = await groq.chat.completions.create({
-      model: 'llama3-8b-8192',
+      model: "llama3-8b-8192",
       messages: body.messages,
       temperature: 0.7,
-      max_tokens: 500,
+      max_tokens: 1000,
     });
 
     return new Response(
@@ -23,20 +23,20 @@ export const POST: APIRoute = async ({ request }) => {
       {
         status: 200,
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
       }
     );
   } catch (error) {
-    console.error(error); 
+    console.error(error);
     return new Response(
       JSON.stringify({
-        error: 'Failed to generate response',
+        error: "Failed to generate response",
       }),
       {
         status: 500,
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
       }
     );
