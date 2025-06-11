@@ -2,7 +2,7 @@ import Groq from 'groq-sdk';
 export { renderers } from '../../renderers.mjs';
 
 const groq = new Groq({
-  apiKey: "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"
+  apiKey: "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"
 });
 const POST = async ({ request }) => {
   try {
