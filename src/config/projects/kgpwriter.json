@@ -60,16 +60,8 @@
   },
   "images": [
     {
-      "src": "https://kgpwriter.netlify.app/assets/images/screenshot1.png",
+      "src": "https://github.com/majid-qurashi/portfolio-apple/blob/master/src/assets/projects/kgpwriter.png?raw=true",
       "alt": "Homepage"
-    },
-    {
-      "src": "https://kgpwriter.netlify.app/assets/images/screenshot2.png",
-      "alt": "Article Editor"
-    },
-    {
-      "src": "https://kgpwriter.netlify.app/assets/images/screenshot3.png",
-      "alt": "Article List"
     }
   ],
   "_comment": "Structure reflects React app with frontend src, public assets, backend server.js and main files"

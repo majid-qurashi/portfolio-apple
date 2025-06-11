@@ -40,22 +40,6 @@ export const userConfig = {
   // Education Background
   education: [
     {
-      degree: "Diploma of Computer Engineering",
-      major: "Computer Science",
-      institution: "Kashmir Government Polytechnic College Srinagar",
-      location: "Srinagar J&K, India",
-      year: "2020-2023",
-      description:
-        "Relevant coursework: Data Structures, Algorithms, Database Management, Software Engineering, Artificial Intelligence, Computer Networks, Operating Systems, Computer Architecture, Computer Organization, Computer Security, Computer Graphics, Computer Systems, Computer Networks, Operating Systems, Computer Architecture, Computer Organization, Computer Security, Computer Graphics, Computer Systems",
-      images: [
-        {
-          url: "https://kgpsrinagar.edu.in/uploads/gallery/media/S2.jpg",
-          alt: "KGP Srinagar ",
-          description: "KGP Srinagar Campus",
-        },
-      ],
-    },
-    {
       degree: "Bachelor of Technology Computer Science & Engineering",
       major: "Computer Science & Engineering",
       institution:
@@ -69,6 +53,22 @@ export const userConfig = {
           url: "https://lh3.googleusercontent.com/gps-cs-s/AC9h4nqAarC7nJd3gDxjumhF24WwGtuxQzuOE1oBkqeZ7tjl6_nkLSRJZNNxNPN44c246HvJGuBlhSwXb_N74kNyYyhGMAM8SRlx-ja6O5udJt5D9LfQF7u2qsd0YDo5u48KB3oGWc9onQ=s1360-w1360-h1020",
           alt: "GCET Kashmir ",
           description: "GCET Kashmir Campus",
+        },
+      ],
+    },
+    {
+      degree: "Diploma in Computer Engineering",
+      major: "Computer Science",
+      institution: "Kashmir Government Polytechnic College Srinagar",
+      location: "Srinagar J&K, India",
+      year: "2020-2023",
+      description:
+        "Relevant coursework: Data Structures, Algorithms, Database Management, Software Engineering, Artificial Intelligence, Computer Networks, Operating Systems, Computer Architecture, Computer Organization, Computer Security, Computer Graphics, Computer Systems, Computer Networks, Operating Systems, Computer Architecture, Computer Organization, Computer Security, Computer Graphics, Computer Systems",
+      images: [
+        {
+          url: "https://kgpsrinagar.edu.in/uploads/gallery/media/S2.jpg",
+          alt: "KGP Srinagar ",
+          description: "KGP Srinagar Campus",
         },
       ],
     },

@@ -101,7 +101,7 @@ There is a bug with direct deployment from github, i can't seem to figure it out
 │   ├── layouts/        # Layout components
 │   ├── pages/          # Astro pages
 │   ├── styles/         # Global styles
-│   ├── config/         # Configuration files
+│   ├── config/         # Confi❤️guration files
 │   └── assets/         # Static assets
 ├── public/             # Public assets
 ├── .astro/             # Astro build files
