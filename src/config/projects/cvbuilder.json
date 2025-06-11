@@ -1,0 +1,127 @@
+{
+  "id": "CV-Builder",
+  "title": "Majid Yaseen Qurashi – CV Builder",
+  "description": "A personal CV and portfolio web application built using Astro, HTML, CSS, JavaScript, PHP, SQL and Bootstrap. Showcases education, projects, skills and contact information with a clean, responsive design deployed on Netlify.",
+  "repoUrl": "https://cv-majid.netlify.app/",
+  "techStack": [
+    "Astro",
+    "HTML",
+    "CSS",
+    "JavaScript",
+    "PHP",
+    "SQL",
+    "Bootstrap",
+    "Figma",
+    "Photoshop",
+    "Git",
+    "Java",
+    "C",
+    "C++"
+  ],
+  "structure": {
+    "root": "cv-majid",
+    "children": [
+      {
+        "name": "index.html",
+        "type": "file"
+      },
+      {
+        "name": "astro.config.mjs",
+        "type": "file"
+      },
+      {
+        "name": "package.json",
+        "type": "file"
+      },
+      {
+        "name": "public",
+        "type": "directory",
+        "children": [
+          {
+            "name": "favicon.ico",
+            "type": "file"
+          },
+          {
+            "name": "resume.pdf",
+            "type": "file"
+          },
+          {
+            "name": "images",
+            "type": "directory",
+            "children": [
+              {
+                "name": "profile.jpg",
+                "type": "file"
+              },
+              {
+                "name": "skill-html.png",
+                "type": "file"
+              },
+              {
+                "name": "skill-css.png",
+                "type": "file"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "src",
+        "type": "directory",
+        "children": [
+          {
+            "name": "pages",
+            "type": "directory",
+            "children": [
+              {
+                "name": "index.astro",
+                "type": "file"
+              },
+              {
+                "name": "projects.astro",
+                "type": "file"
+              },
+              {
+                "name": "skills.astro",
+                "type": "file"
+              }
+            ]
+          },
+          {
+            "name": "components",
+            "type": "directory",
+            "children": [
+              {
+                "name": "ProjectCard.astro",
+                "type": "file"
+              },
+              {
+                "name": "SkillIcon.astro",
+                "type": "file"
+              },
+              {
+                "name": "ContactForm.astro",
+                "type": "file"
+              }
+            ]
+          },
+          {
+            "name": "styles",
+            "type": "directory",
+            "children": [
+              {
+                "name": "global.css",
+                "type": "file"
+              },
+              {
+                "name": "theme.css",
+                "type": "file"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "images": []
+}

@@ -25,27 +25,32 @@ A modern, interactive portfolio website built with Astro, React, and Tailwind CS
 ## 📦 Installation
 
 1. Clone the repository:
+
 ```bash
 git clone https://github.com/aabdoo23/portfolio
 cd portfolio
 ```
 
 2. Install dependencies:
+
 ```bash
 npm install
 ```
 
 3. Create a `.env` file in the root directory and add your environment variables:
+
 ```env
 GROQ_API_KEY = YOUR_GROQ_API_KEY
 ```
+
 4. Access the `userconfig.ts` file and start putting in your data.
 
 5. To generate json files for your projects, I have provided a `github_repo_parser.py` file in the `util` folder, you can provide a github token to avoid rate limiting to the call of the parser in the main
+
 ```python
 def main():
     parser = GitHubRepoParser('ghp_YOUR_TOKEN_HERE')
-    
+
 ```
 
 ## 🚀 Development
@@ -73,16 +78,20 @@ npm run preview
 ```
 
 ## Deploy to vercel:
+
 ```bash
 npx vercel deploy --prod
 ```
-or 
+
+or
+
 ```bash
 npx vercel deploy
 ```
+
 and select the image from the vercel dashboard.
 
-There is a bug with direct deployment from github, i can't seem to figure it out tbf, so for the time being use the above commands after running ```npm run build```.
+There is a bug with direct deployment from github, i can't seem to figure it out tbf, so for the time being use the above commands after running `npm run build`.
 
 ## 📁 Project Structure
 
@@ -132,3 +141,4 @@ For questions or support, please open an issue on GitHub.
 
 Original version made with ❤️ in Austin, TX by Johnny Culbreth
 Modified with ❤️ in Giza, Egypt by aabdoo23
+Futher modified with ❤️ by Majid Qurashi.
