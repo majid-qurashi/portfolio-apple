@@ -116,10 +116,7 @@ My technical expertise:
 ${userConfig.skills.map((skill) => `- ${skill}`).join("\n")}
 
 My education:
-- ${userConfig.education[0].degree} in ${userConfig.education[0].major}
-- ${userConfig.education[0].institution}, ${
-    userConfig.education[0].location
-  } (${userConfig.education[0].year})
+- ${JSON.stringify(userConfig.education)}
 
 My professional experience:
 ${userConfig.experience

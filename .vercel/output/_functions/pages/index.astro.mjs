@@ -2,7 +2,7 @@ import { i as createAstro, j as createComponent, p as renderComponent, r as rend
 import 'kleur/colors';
 /* empty css                                 */
 import { escape } from 'html-escaper';
-import { c as getImage } from '../chunks/_astro_assets_DX0GkQ3m.mjs';
+import { c as getImage } from '../chunks/_astro_assets_BW2CJsC9.mjs';
 import { jsxs, jsx, Fragment as Fragment$1 } from 'react/jsx-runtime';
 import { useState, useEffect, useRef } from 'react';
 import { MdWifi } from 'react-icons/md';
@@ -362,7 +362,7 @@ const buildTags = (config) => {
   return tagsToRender.trim();
 };
 
-const $$Astro$4 = createAstro("https://example.com");
+const $$Astro$4 = createAstro("https://majidqurashi.vercel.app/");
 const $$AstroSeo = createComponent(($$result, $$props, $$slots) => {
   const Astro2 = $$result.createAstro($$Astro$4, $$props, $$slots);
   Astro2.self = $$AstroSeo;
@@ -522,7 +522,7 @@ const userConfig = {
       major: "Computer Science & Engineering",
       institution: "Government College of Engineering & Technology Safapora Kashmir",
       location: "Ganderbal J&K, India",
-      year: "2023-2026",
+      year: "2023-Ongoing",
       description: "Relevant coursework: Data Structures, Algorithms, Database Management, Software Engineering, Artificial Intelligence, Computer Networks, Operating Systems, Computer Architecture, Computer Organization, Computer Security, Computer Graphics, Computer Systems, Computer Networks, Operating Systems, Computer Architecture, Computer Organization, Computer Security, Computer Graphics, Computer Systems",
       images: [
         {
@@ -676,7 +676,7 @@ const userConfig = {
   ]
 };
 
-const $$Astro$3 = createAstro("https://example.com");
+const $$Astro$3 = createAstro("https://majidqurashi.vercel.app/");
 const $$BaseHead = createComponent(async ($$result, $$props, $$slots) => {
   const Astro2 = $$result.createAstro($$Astro$3, $$props, $$slots);
   Astro2.self = $$BaseHead;
@@ -699,7 +699,7 @@ const $$BaseHead = createComponent(async ($$result, $$props, $$slots) => {
   } })}<!-- Add your favicon files in public/images/ --><link rel="apple-touch-icon" sizes="180x180" href="https://avatars.githubusercontent.com/u/97130221?s=400&u=aaa4eb0bf9d07b901f0b15df8540fefea2fca729&v=4"><link rel="icon" type="image/png" sizes="32x32" href="https://avatars.githubusercontent.com/u/97130221?s=400&u=aaa4eb0bf9d07b901f0b15df8540fefea2fca729&v=4"><link rel="icon" type="image/png" sizes="16x16" href="https://avatars.githubusercontent.com/u/97130221?s=400&u=aaa4eb0bf9d07b901f0b15df8540fefea2fca729&v=4"><!-- Theme colors for browsers --><meta name="msapplication-TileColor"${addAttribute(userConfig.theme.secondaryColor, "content")}><meta name="theme-color"${addAttribute(userConfig.theme.secondaryColor, "content")}><!-- Auto-generated sitemap --><link rel="sitemap" href="/sitemap-index.xml"><!-- Preload background images for performance -->${backgrounds.map((bg) => renderTemplate`<link rel="preload"${addAttribute(bg.src, "href")} as="image" type="image/webp" fetchpriority="high">`)}`;
 }, "/home/majid-qurashi/Documents/code/projects/portfolio-apple/src/components/global/BaseHead.astro", void 0);
 
-const $$Astro$2 = createAstro("https://example.com");
+const $$Astro$2 = createAstro("https://majidqurashi.vercel.app/");
 const $$Index$2 = createComponent(($$result, $$props, $$slots) => {
   const Astro2 = $$result.createAstro($$Astro$2, $$props, $$slots);
   Astro2.self = $$Index$2;
@@ -708,7 +708,7 @@ const $$Index$2 = createComponent(($$result, $$props, $$slots) => {
   return renderTemplate`${renderComponent($$result, "vercel-analytics", "vercel-analytics", { "data-props": propsStr, "data-params": paramsStr, "data-pathname": Astro2.url.pathname })} ${renderScript($$result, "/home/majid-qurashi/Documents/code/projects/portfolio-apple/node_modules/@vercel/analytics/dist/astro/index.astro?astro&type=script&index=0&lang.ts")}`;
 }, "/home/majid-qurashi/Documents/code/projects/portfolio-apple/node_modules/@vercel/analytics/dist/astro/index.astro", void 0);
 
-const $$Astro$1 = createAstro("https://example.com");
+const $$Astro$1 = createAstro("https://majidqurashi.vercel.app/");
 const $$Index$1 = createComponent(($$result, $$props, $$slots) => {
   const Astro2 = $$result.createAstro($$Astro$1, $$props, $$slots);
   Astro2.self = $$Index$1;
@@ -717,7 +717,7 @@ const $$Index$1 = createComponent(($$result, $$props, $$slots) => {
   return renderTemplate`${renderComponent($$result, "vercel-speed-insights", "vercel-speed-insights", { "data-props": propsStr, "data-params": paramsStr, "data-pathname": Astro2.url.pathname })} ${renderScript($$result, "/home/majid-qurashi/Documents/code/projects/portfolio-apple/node_modules/@vercel/speed-insights/dist/astro/index.astro?astro&type=script&index=0&lang.ts")}`;
 }, "/home/majid-qurashi/Documents/code/projects/portfolio-apple/node_modules/@vercel/speed-insights/dist/astro/index.astro", void 0);
 
-const $$Astro = createAstro("https://example.com");
+const $$Astro = createAstro("https://majidqurashi.vercel.app/");
 const $$Layout = createComponent(($$result, $$props, $$slots) => {
   const Astro2 = $$result.createAstro($$Astro, $$props, $$slots);
   Astro2.self = $$Layout;
@@ -1346,8 +1346,7 @@ My technical expertise:
 ${userConfig.skills.map((skill) => `- ${skill}`).join("\n")}
 
 My education:
-- ${userConfig.education[0].degree} in ${userConfig.education[0].major}
-- ${userConfig.education[0].institution}, ${userConfig.education[0].location} (${userConfig.education[0].year})
+- ${JSON.stringify(userConfig.education)}
 
 My professional experience:
 ${userConfig.experience.map(
