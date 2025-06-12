@@ -603,7 +603,7 @@ const userConfig = {
       year: "2023-2024",
       images: [
         {
-          url: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.academor.com%2F&psig=AOvVaw2ohxNwZStYG3886WAoruQ7&ust=1749703271575000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCLjXwYbH6I0DFQAAAAAdAAAAABAE",
+          url: "https://static.vecteezy.com/system/resources/thumbnails/059/529/789/small/graduation-cap-in-wreath-with-star-colorful-design-on-white-background-free-vector.jpg",
           alt: "Academor"
           // description: "NUICPC Campus"
         }
@@ -619,7 +619,7 @@ const userConfig = {
       year: "2023",
       images: [
         {
-          url: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fstreetcurling.com%2F&psig=AOvVaw1kpDCBdu9YRG6vuJ77UKL_&ust=1749703696431000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCMDazK3I6I0DFQAAAAAdAAAAABAE",
+          url: "https://static.vecteezy.com/system/resources/thumbnails/065/838/158/small/a-doodle-style-illustration-showing-curling-sport-vector.jpg",
           alt: "KGP Srinagar",
           description: "Iceless curling demo"
         }
@@ -634,7 +634,7 @@ const userConfig = {
       year: "2017",
       images: [
         {
-          url: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.primevideo.com%2Fdetail%2FEnglish-Football-League%2F0PGBSFG71P59R5JMH3X3EF6BF4&psig=AOvVaw2_gLSAnlkWnizWpjZK2jyr&ust=1749704028649000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCJjt8svJ6I0DFQAAAAAdAAAAABAE",
+          url: "https://static.vecteezy.com/system/resources/thumbnails/036/493/490/small/football-logo-design-illustration-vector.jpg",
           alt: "DPL",
           description: "DPL Handwara"
         }
@@ -652,7 +652,7 @@ const userConfig = {
       technologies: ["HTML", "CSS", "JS"],
       images: [
         {
-          url: "https://www.google.com/url?sa=i&url=https%3A%2F%2Funstop.com%2Fc%2Fcognifyz-technologies-845937&psig=AOvVaw31nFsRRzJicCOXXQ6H9naY&ust=1749704243853000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCJi59bHK6I0DFQAAAAAdAAAAABAU",
+          url: "https://static.vecteezy.com/system/resources/thumbnails/059/529/789/small/graduation-cap-in-wreath-with-star-colorful-design-on-white-background-free-vector.jpg",
           alt: "cognifyz"
           // description: "Luftborn Logo"
         }
