@@ -1,21 +1,22 @@
 {
-  "id": "portfolio",
-  "title": "Personal portfolio website",
-  "description": "A personal portfolio showcasing logo & brand design, poster design, web design, motion graphics, video editing, 3D animation, and social media content. Built and deployed using web technologies.",
-  "repoUrl": "https://github.com/majid-qurashi/MajidYaseenQurashi",
-  "liveUrl": "https://qurashi.netlify.app",
+  "id": "portfolio-apple",
+  "title": "Majid Qurashi – Current portfolio",
+  "description": "A personal portfolio showcasing web development projects, design work, and programming expertise. Built and deployed using modern web technologies.",
+  "repoUrl": "https://github.com/majid-qurashi/portfolio-apple",
+  "liveUrl": "https://majidqurashi.vercel.app",
   "techStack": [
     "HTML",
     "CSS",
     "JavaScript",
-    "3D Design (e.g. Maya)",
+    "Astro",
+    "Typescript",
+    "Python",
+    "Framer motion",
     "Adobe Photoshop",
-    "Adobe After Effects",
-    "Motion Graphic Tools",
-    "Video Editing Suites"
+    "Figma"
   ],
   "structure": {
-    "root": "qurashi-studio",
+    "root": "majidqurashi-portfolio",
     "children": [
       {
         "name": "index.html",
@@ -46,15 +47,15 @@
         "type": "directory",
         "children": [
           {
-            "name": "logo.jpg",
+            "name": "profile.jpg",
             "type": "file"
           },
           {
-            "name": "poster1.jpg",
+            "name": "project1.jpg",
             "type": "file"
           },
           {
-            "name": "portfolio-thumbnail.png",
+            "name": "project-thumbnail.png",
             "type": "file"
           }
         ]
@@ -68,11 +69,11 @@
         "type": "file"
       },
       {
-        "name": "3d-design.html",
+        "name": "projects.html",
         "type": "file"
       }
     ]
   },
   "images": [],
-  "_comment": "Structure reflects portfolio pages (home, about, contact, 3D design) and asset folders"
+  "_comment": "Structure reflects portfolio pages (home, about, contact, projects) and asset folders"
 }

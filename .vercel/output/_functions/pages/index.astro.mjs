@@ -426,54 +426,75 @@ const macBackground3 = new Proxy({"src":"/_astro/mac-background3.Ct4jh3Yv.jpg","
 						}
 					});
 
-const id$2 = "kgpwriter";
-const title$2 = "KGP Writer – Collaborative Writing Platform";
-const description$2 = "A web application that allows students to write, share, and comment on articles. Built using modern web technologies with a focus on user-friendly design and functionality.";
-const repoUrl$2 = "https://github.com/yourusername/kgpwriter";
-const liveUrl$1 = "https://kgpwriter.netlify.app";
-const techStack$2 = ["React","Node.js","Express","MongoDB","JWT Authentication","CSS3","HTML5"];
-const structure$2 = {"root":"kgp-writer","children":[{"name":"index.html","type":"file"},{"name":"public","type":"directory","children":[{"name":"favicon.ico","type":"file"},{"name":"manifest.json","type":"file"},{"name":"logo192.png","type":"file"},{"name":"logo512.png","type":"file"}]},{"name":"src","type":"directory","children":[{"name":"App.js","type":"file"},{"name":"index.js","type":"file"},{"name":"components","type":"directory","children":[{"name":"ArticleEditor.js","type":"file"},{"name":"ArticleList.js","type":"file"},{"name":"CommentSection.js","type":"file"},{"name":"Navbar.js","type":"file"}]},{"name":"styles","type":"directory","children":[{"name":"App.css","type":"file"}]}]},{"name":"server.js","type":"file"},{"name":"package.json","type":"file"},{"name":"README.md","type":"file"}]};
-const images$2 = [];
-const _comment$1 = "Structure reflects React app with frontend src, public assets, backend server.js and main files";
+const id$3 = "kgpwriter";
+const title$3 = "KGP Writer – Collaborative Writing Platform";
+const description$3 = "A web application that allows students to write, share, and comment on articles. Built using modern web technologies with a focus on user-friendly design and functionality.";
+const repoUrl$3 = "https://github.com/yourusername/kgpwriter";
+const liveUrl$2 = "https://kgpwriter.netlify.app";
+const techStack$3 = ["React","Node.js","Express","MongoDB","JWT Authentication","CSS3","HTML5"];
+const structure$3 = {"root":"kgp-writer","children":[{"name":"index.html","type":"file"},{"name":"public","type":"directory","children":[{"name":"favicon.ico","type":"file"},{"name":"manifest.json","type":"file"},{"name":"logo192.png","type":"file"},{"name":"logo512.png","type":"file"}]},{"name":"src","type":"directory","children":[{"name":"App.js","type":"file"},{"name":"index.js","type":"file"},{"name":"components","type":"directory","children":[{"name":"ArticleEditor.js","type":"file"},{"name":"ArticleList.js","type":"file"},{"name":"CommentSection.js","type":"file"},{"name":"Navbar.js","type":"file"}]},{"name":"styles","type":"directory","children":[{"name":"App.css","type":"file"}]}]},{"name":"server.js","type":"file"},{"name":"package.json","type":"file"},{"name":"README.md","type":"file"}]};
+const images$3 = [];
+const _comment$2 = "Structure reflects React app with frontend src, public assets, backend server.js and main files";
 const kgpwriter = {
+  id: id$3,
+  title: title$3,
+  description: description$3,
+  repoUrl: repoUrl$3,
+  liveUrl: liveUrl$2,
+  techStack: techStack$3,
+  structure: structure$3,
+  images: images$3,
+  _comment: _comment$2,
+};
+
+const id$2 = "CV-Builder";
+const title$2 = "CV Builder";
+const description$2 = "A personal CV, resume web application built using Astro, HTML, CSS, JavaScript, PHP, SQL and Bootstrap. Showcases education, projects, skills and contact information with a clean, responsive design deployed on Netlify.";
+const repoUrl$2 = "https://cv-majid.netlify.app/";
+const techStack$2 = ["Astro","HTML","CSS","JavaScript","PHP","SQL","Bootstrap","Figma","Photoshop","Git","Java","C","C++"];
+const structure$2 = {"root":"cv-majid","children":[{"name":"index.html","type":"file"},{"name":"astro.config.mjs","type":"file"},{"name":"package.json","type":"file"},{"name":"public","type":"directory","children":[{"name":"favicon.ico","type":"file"},{"name":"resume.pdf","type":"file"},{"name":"images","type":"directory","children":[{"name":"profile.jpg","type":"file"},{"name":"skill-html.png","type":"file"},{"name":"skill-css.png","type":"file"}]}]},{"name":"src","type":"directory","children":[{"name":"pages","type":"directory","children":[{"name":"index.astro","type":"file"},{"name":"projects.astro","type":"file"},{"name":"skills.astro","type":"file"}]},{"name":"components","type":"directory","children":[{"name":"ProjectCard.astro","type":"file"},{"name":"SkillIcon.astro","type":"file"},{"name":"ContactForm.astro","type":"file"}]},{"name":"styles","type":"directory","children":[{"name":"global.css","type":"file"},{"name":"theme.css","type":"file"}]}]}]};
+const images$2 = [];
+const cvbuilder = {
   id: id$2,
   title: title$2,
   description: description$2,
   repoUrl: repoUrl$2,
-  liveUrl: liveUrl$1,
   techStack: techStack$2,
   structure: structure$2,
   images: images$2,
-  _comment: _comment$1,
 };
 
-const id$1 = "CV-Builder";
-const title$1 = "Majid Yaseen Qurashi – CV Builder";
-const description$1 = "A personal CV and portfolio web application built using Astro, HTML, CSS, JavaScript, PHP, SQL and Bootstrap. Showcases education, projects, skills and contact information with a clean, responsive design deployed on Netlify.";
-const repoUrl$1 = "https://cv-majid.netlify.app/";
-const techStack$1 = ["Astro","HTML","CSS","JavaScript","PHP","SQL","Bootstrap","Figma","Photoshop","Git","Java","C","C++"];
-const structure$1 = {"root":"cv-majid","children":[{"name":"index.html","type":"file"},{"name":"astro.config.mjs","type":"file"},{"name":"package.json","type":"file"},{"name":"public","type":"directory","children":[{"name":"favicon.ico","type":"file"},{"name":"resume.pdf","type":"file"},{"name":"images","type":"directory","children":[{"name":"profile.jpg","type":"file"},{"name":"skill-html.png","type":"file"},{"name":"skill-css.png","type":"file"}]}]},{"name":"src","type":"directory","children":[{"name":"pages","type":"directory","children":[{"name":"index.astro","type":"file"},{"name":"projects.astro","type":"file"},{"name":"skills.astro","type":"file"}]},{"name":"components","type":"directory","children":[{"name":"ProjectCard.astro","type":"file"},{"name":"SkillIcon.astro","type":"file"},{"name":"ContactForm.astro","type":"file"}]},{"name":"styles","type":"directory","children":[{"name":"global.css","type":"file"},{"name":"theme.css","type":"file"}]}]}]};
+const id$1 = "portfolio";
+const title$1 = "Personal portfolio website";
+const description$1 = "A personal portfolio showcasing logo & brand design, poster design, web design, motion graphics, video editing, 3D animation, and social media content. Built and deployed using web technologies.";
+const repoUrl$1 = "https://github.com/majid-qurashi/MajidYaseenQurashi";
+const liveUrl$1 = "https://qurashi.netlify.app";
+const techStack$1 = ["HTML","CSS","JavaScript","3D Design (e.g. Maya)","Adobe Photoshop","Adobe After Effects","Motion Graphic Tools","Video Editing Suites"];
+const structure$1 = {"root":"qurashi-studio","children":[{"name":"index.html","type":"file"},{"name":"css","type":"directory","children":[{"name":"styles.css","type":"file"}]},{"name":"js","type":"directory","children":[{"name":"scripts.js","type":"file"}]},{"name":"images","type":"directory","children":[{"name":"logo.jpg","type":"file"},{"name":"poster1.jpg","type":"file"},{"name":"portfolio-thumbnail.png","type":"file"}]},{"name":"about.html","type":"file"},{"name":"contact.html","type":"file"},{"name":"3d-design.html","type":"file"}]};
 const images$1 = [];
-const cvbuilder = {
+const _comment$1 = "Structure reflects portfolio pages (home, about, contact, 3D design) and asset folders";
+const portfolio = {
   id: id$1,
   title: title$1,
   description: description$1,
   repoUrl: repoUrl$1,
+  liveUrl: liveUrl$1,
   techStack: techStack$1,
   structure: structure$1,
   images: images$1,
+  _comment: _comment$1,
 };
 
-const id = "portfolio";
-const title = "Qurashi Studio – Professional Designer & Vlogger";
-const description = "A personal portfolio showcasing logo & brand design, poster design, web design, motion graphics, video editing, 3D animation, and social media content. Built and deployed using web technologies.";
-const repoUrl = "https://github.com/majid-qurashi/MajidYaseenQurashi";
-const liveUrl = "https://qurashi.netlify.app";
-const techStack = ["HTML","CSS","JavaScript","3D Design (e.g. Maya)","Adobe Photoshop","Adobe After Effects","Motion Graphic Tools","Video Editing Suites"];
-const structure = {"root":"qurashi-studio","children":[{"name":"index.html","type":"file"},{"name":"css","type":"directory","children":[{"name":"styles.css","type":"file"}]},{"name":"js","type":"directory","children":[{"name":"scripts.js","type":"file"}]},{"name":"images","type":"directory","children":[{"name":"logo.jpg","type":"file"},{"name":"poster1.jpg","type":"file"},{"name":"portfolio-thumbnail.png","type":"file"}]},{"name":"about.html","type":"file"},{"name":"contact.html","type":"file"},{"name":"3d-design.html","type":"file"}]};
+const id = "portfolio-apple";
+const title = "Majid Qurashi – Current portfolio";
+const description = "A personal portfolio showcasing web development projects, design work, and programming expertise. Built and deployed using modern web technologies.";
+const repoUrl = "https://github.com/majid-qurashi/portfolio-apple";
+const liveUrl = "https://majidqurashi.vercel.app";
+const techStack = ["HTML","CSS","JavaScript","Astro","Typescript","Python","Framer motion","Adobe Photoshop","Figma"];
+const structure = {"root":"majidqurashi-portfolio","children":[{"name":"index.html","type":"file"},{"name":"css","type":"directory","children":[{"name":"styles.css","type":"file"}]},{"name":"js","type":"directory","children":[{"name":"scripts.js","type":"file"}]},{"name":"images","type":"directory","children":[{"name":"profile.jpg","type":"file"},{"name":"project1.jpg","type":"file"},{"name":"project-thumbnail.png","type":"file"}]},{"name":"about.html","type":"file"},{"name":"contact.html","type":"file"},{"name":"projects.html","type":"file"}]};
 const images = [];
-const _comment = "Structure reflects portfolio pages (home, about, contact, 3D design) and asset folders";
-const portfolio = {
+const _comment = "Structure reflects portfolio pages (home, about, contact, projects) and asset folders";
+const portfolio_apple = {
   id,
   title,
   description,
@@ -490,6 +511,7 @@ const userConfig = {
   name: "Majid Qurashi",
   role: "Computer Science Engineer",
   location: "J&K India",
+  email: "majidqurashi958@gmail.com",
   website: "qurashi.vercel.app",
   roleFocus: "Web developer",
   age: 20,
@@ -509,7 +531,10 @@ const userConfig = {
   },
   // Spotify Configuration
   spotify: {
-    playlistId: "5WsS94KKm5wDhgEpg8VcgM"},
+    playlistId: "5WsS94KKm5wDhgEpg8VcgM",
+    // Your Spotify playlist ID
+    playlistName: "Coding-Time"
+  },
   // Resume Configuration
   resume: {
     url: "https://cv-majid.netlify.app/",
@@ -522,7 +547,7 @@ const userConfig = {
       major: "Computer Science & Engineering",
       institution: "Government College of Engineering & Technology Safapora Kashmir",
       location: "Ganderbal J&K, India",
-      year: "2023-2026",
+      year: "2023-Ongoing",
       description: "Relevant coursework: Data Structures, Algorithms, Database Management, Software Engineering, Artificial Intelligence, Computer Networks, Operating Systems, Computer Architecture, Computer Organization, Computer Security, Computer Graphics, Computer Systems, Computer Networks, Operating Systems, Computer Architecture, Computer Organization, Computer Security, Computer Graphics, Computer Systems",
       images: [
         {
@@ -599,7 +624,7 @@ const userConfig = {
     {
       role: "Campus Ambessder",
       institution: "Academor",
-      location: "Nile University",
+      location: "Remote",
       year: "2023-2024",
       images: [
         {
@@ -639,120 +664,6 @@ const userConfig = {
           description: "DPL Handwara"
         }
       ]
-    },
-    {
-      title: "Dean's Honors",
-      description: "Dean's Honors",
-      achievement: "Made the Dean's List for the Fall 2024 semester",
-      year: "2024",
-      images: [
-        {
-          url: "https://i.ibb.co/k2jWyBVz/468465943-17952654941854972-3647153475567609171-n.jpg",
-          alt: "Dean's Honors",
-          description: "Dean's Honors"
-        }
-      ]
-    },
-    {
-      title: "Nile University Innovation Competition",
-      description: "Nile University Innovation Competition",
-      achievement: "Secured second place in the Nile University Innovation Competition hosted by Nile University - NilePreneurs and NU E-Club ! 🎉🏆",
-      year: "2025",
-      images: [
-        {
-          url: "https://i.ibb.co/HfGLHCQn/1723818852840.jpg",
-          alt: "NUIC"
-          // description: "NUIC Certificate"
-        },
-        {
-          url: "https://i.ibb.co/VcyKywY4/1723818852069.jpg",
-          alt: "NUIC"
-          // description: "NUIC Certificate"
-        }
-      ]
-    },
-    {
-      title: "ECPC",
-      description: "Egyptian Collegiate Programming Contest",
-      achievement: "Rank 3rd in my third year at NU and qualified for the ECPC Finals",
-      year: "2024",
-      images: [
-        {
-          url: "https://i.ibb.co/N2RZwmKT/487497338-1081518670677230-8143431170413885977-n.jpg",
-          alt: "ECPC",
-          description: "ECPC Certificate"
-        }
-      ]
-    },
-    {
-      title: "UGRF 17th Edition",
-      description: "UGRF 17th Edition",
-      achievement: "2nd place SWE for PregTracker- personalized pregnancy tracker ",
-      year: "2024",
-      images: [
-        {
-          url: "https://i.ibb.co/N2qgnb92/1706802292377.jpg",
-          alt: "UGRF",
-          description: "UGRF Certificate"
-        }
-      ]
-    },
-    {
-      title: "UGRF 17th Edition",
-      description: "UGRF 17th Edition",
-      achievement: " 2nd place Clinical informatics for Recover360- an advanced physiotherapy clinic management system",
-      year: "2024",
-      images: [
-        {
-          url: "https://i.ibb.co/N2qgnb92/1706802292377.jpg",
-          alt: "UGRF",
-          description: "UGRF Certificate"
-        },
-        {
-          url: "https://i.ibb.co/SkfYGDv/1706802293048.jpg",
-          alt: "UGRF",
-          description: "UGRF Certificate"
-        }
-      ]
-    },
-    {
-      title: "ECPC",
-      description: "Egyptian Collegiate Programming Contest",
-      achievement: "Rank 7th in my first year at NU",
-      year: "2022",
-      images: [
-        {
-          url: "https://scontent.fcai19-7.fna.fbcdn.net/v/t39.30808-6/482277706_1065267045635726_1956241697864875127_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=86c6b0&_nc_ohc=1ylVvYBsad4Q7kNvwGOE6DO&_nc_oc=Adltzr1B7OJ92p1jCzivnB0WvixF4DyE-MwQ8qhS7qD8G9fxDmbN3X5qcvrYuUyQ87Q&_nc_zt=23&_nc_ht=scontent.fcai19-7.fna&_nc_gid=3tU8CVtPMYaAEAoV-DVUcQ&oh=00_AfFICX7UOYGbZ01o2DP1U4nOfR4p6P7RUv0AhILIPAql_g&oe=6806DF27",
-          alt: "ECPC"
-          // description: "ECPC Certificate"
-        }
-      ]
-    },
-    {
-      title: "ECPC",
-      description: "Egyptian Collegiate Programming Contest",
-      achievement: "Rank 5th in my second year at NU",
-      year: "2023",
-      images: [
-        {
-          url: "https://i.ibb.co/NnWkjG8g/486719077-1079195597576204-1921460299948979682-n.jpg",
-          alt: "ECPC"
-          // description: "ECPC Certificate"
-        }
-      ]
-    },
-    {
-      title: "EOI",
-      description: "Egyptian Olympiad in Informatics",
-      achievement: "Rank 51 in Egypt",
-      year: "2015",
-      images: [
-        {
-          url: "https://scontent.fcai19-7.fna.fbcdn.net/v/t39.30808-6/462316142_7913407118761100_685588124196353855_n.png?_nc_cat=101&ccb=1-7&_nc_sid=86c6b0&_nc_ohc=7cOAfEscTtUQ7kNvwHHXc59&_nc_oc=AdmZ1IgqnVQhS5ZJxSMlE7VO5h2GwBnOM_SaQ_mXEGhRayrAdbc7l7wIrObBPOGqo6k&_nc_zt=23&_nc_ht=scontent.fcai19-7.fna&_nc_gid=LBTKldq_gsmdhFQ--n6Q6g&oh=00_AfFvKYIPxae6llKl_VT17dG5zIDCLOkf2EigX7n6x00G-g&oe=680AC3F6",
-          alt: "EOI"
-          // description: "EOI Certificate"
-        }
-      ]
     }
   ],
   // Professional Experience
@@ -776,16 +687,30 @@ const userConfig = {
   // SEO Configuration
   seo: {
     title: "Majid Qurashi - Web Developer",
-    description: "Software Developer based in Kashmir specializing in React, Next.js, and modern web technologies"},
+    description: "Software Developer based in Kashmir specializing in React, Next.js, and modern web technologies",
+    keywords: [
+      "Software Developer",
+      "React",
+      "Node.js",
+      "Next.js",
+      "Astro.js",
+      "Web Development",
+      "India"
+    ]
+  },
   // Theme Configuration
   theme: {
+    primaryColor: "#1ED760",
     // Spotify green
-    secondaryColor: "#1d1d1f"},
+    secondaryColor: "#1d1d1f",
+    accentColor: "#007AFF"
+  },
   // Projects Configuration
   projects: [
     kgpwriter,
     portfolio,
-    cvbuilder
+    cvbuilder,
+    portfolio_apple
     // Add more projects here
   ]
 };
@@ -1449,29 +1374,7 @@ A: "I'm a ${userConfig.role} with a focus for ${userConfig.roleFocus}"
 Q: "How old are you?"
 A: "I'm ${userConfig.age} years old"
 
-Core details about me:
-- I'm ${userConfig.age} years old
-- I live in ${userConfig.location}
-- I'm a ${userConfig.role}
-- My email is ${userConfig.contact.email}
-- I was born in ${userConfig.location}
-
-My technical expertise:
-${userConfig.skills.map((skill) => `- ${skill}`).join("\n")}
-
-My education:
-- ${userConfig.education}
-
-My professional experience:
-${userConfig.experience.map(
-    (exp) => `- ${exp.title} at ${exp.company}, ${exp.location} (${exp.period})`
-  ).join("\n")}
-
-My projects:
-${userConfig.projects.map((project) => `- ${project.title}: ${project.description}`).join("\n")}
-
-My achievements and competitions:
-${userConfig.competitions.map((comp) => `- ${comp.title} (${comp.year}): ${comp.achievement}`).join("\n")}
+About Me: ${JSON.stringify(userConfig)}
 
 Response rules:
 1. ALWAYS use first-person (I, me, my)

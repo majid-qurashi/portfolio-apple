@@ -13,7 +13,7 @@ export const POST: APIRoute = async ({ request }) => {
       model: "llama3-8b-8192",
       messages: body.messages,
       temperature: 0.7,
-      max_tokens: 1000,
+      max_tokens: 700,
     });
 
     return new Response(
