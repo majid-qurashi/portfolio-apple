@@ -10,7 +10,7 @@ const POST = async ({ request }) => {
     const completion = await groq.chat.completions.create({
       model: "llama3-8b-8192",
       messages: body.messages,
-      temperature: 0.9,
+      temperature: 0.7,
       max_tokens: 1e3
     });
     return new Response(
