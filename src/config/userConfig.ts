@@ -1,7 +1,6 @@
 import kgpwriter from "./projects/kgpwriter.json";
 import cvbuilder from "./projects/cvbuilder.json";
 import portfolio from "./projects/portfolio.json";
-import portfolio_apple from "./projects/portfolio-apple.json";
 
 export const userConfig = {
   // Personal Information
@@ -46,7 +45,7 @@ export const userConfig = {
       institution:
         "Government College of Engineering & Technology Safapora Kashmir",
       location: "Ganderbal J&K, India",
-      year: "2023-Ongoing",
+      year: "2023-2026",
       description:
         "Relevant coursework: Data Structures, Algorithms, Database Management, Software Engineering, Artificial Intelligence, Computer Networks, Operating Systems, Computer Architecture, Computer Organization, Computer Security, Computer Graphics, Computer Systems, Computer Networks, Operating Systems, Computer Architecture, Computer Organization, Computer Security, Computer Graphics, Computer Systems",
       images: [
@@ -219,7 +218,6 @@ export const userConfig = {
     kgpwriter,
     portfolio,
     cvbuilder,
-    portfolio_apple,
 
     // Add more projects here
   ],

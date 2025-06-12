@@ -1,7 +1,7 @@
 {
   "id": "CV-Builder",
-  "title": "CV Builder",
-  "description": "A personal CV, resume web application built using Astro, HTML, CSS, JavaScript, PHP, SQL and Bootstrap. Showcases education, projects, skills and contact information with a clean, responsive design deployed on Netlify.",
+  "title": "Majid Yaseen Qurashi – CV Builder",
+  "description": "A personal CV and portfolio web application built using Astro, HTML, CSS, JavaScript, PHP, SQL and Bootstrap. Showcases education, projects, skills and contact information with a clean, responsive design deployed on Netlify.",
   "repoUrl": "https://cv-majid.netlify.app/",
   "techStack": [
     "Astro",
