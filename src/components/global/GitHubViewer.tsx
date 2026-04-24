@@ -201,7 +201,7 @@ const GitHubViewer: React.FC<GitHubViewerProps> = ({ isOpen, onClose }) => {
                           onClick={(e) => e.stopPropagation()}
                         >
                           <FaExternalLinkAlt />
-                          <span>Live Demo</span>
+                          <span>Live Demo </span>
                         </a>
                       )}
                     </div>
