@@ -40,9 +40,12 @@ export default function MobileDock({ onGitHubClick, onNotesClick, onResumeClick,
             <BsStickyFill size={28} className='text-white' />
           </div>
         </button>
-        <button onClick={onResumeClick} className='active:scale-90 transition-transform'>
-          <div className='w-12 h-12 bg-gradient-to-tr from-red-600 to-red-400 rounded-2xl flex items-center justify-center'>
-            <BsFilePdf size={28} className='text-white' />
+        <button 
+          onClick={() => window.open(userConfig.social.linkedin, '_blank')} 
+          className='active:scale-90 transition-transform'
+        >
+          <div className='w-12 h-12 bg-gradient-to-tr from-blue-700 to-blue-500 rounded-2xl flex items-center justify-center'>
+            <BsLinkedin size={28} className='text-white' />
           </div>
         </button>
         <button onClick={onTerminalClick} className='active:scale-90 transition-transform'>

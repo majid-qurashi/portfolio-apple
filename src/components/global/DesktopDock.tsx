@@ -127,12 +127,12 @@ const DesktopDock = ({
           active={activeApps.notes} 
         />
         <DockIcon 
-          id="resume" 
-          icon={BsFilePdf} 
-          label="View Resume" 
-          onClick={onResumeClick} 
-          color="bg-gradient-to-tr from-red-600 to-red-400" 
-          active={activeApps.resume} 
+          id="linkedin" 
+          icon={BsLinkedin} 
+          label="LinkedIn" 
+          onClick={() => window.open(userConfig.social.linkedin, '_blank')} 
+          color="bg-gradient-to-tr from-blue-700 to-blue-500" 
+          active={false} 
         />
         <DockIcon 
           id="terminal" 

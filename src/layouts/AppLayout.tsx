@@ -13,6 +13,8 @@ import BootSequence from '../components/global/BootSequence';
 import CustomCursor from '../components/global/CustomCursor';
 import SpotifyPlayer from '../components/global/SpotifyPlayer';
 import { userConfig } from '../config/userConfig';
+import majidImg from '../assets/images/majid.jpg';
+import { FaFileDownload } from 'react-icons/fa';
 
 interface AppLayoutProps {
   initialBg: string;
@@ -145,7 +147,6 @@ export default function Desktop({ initialBg, backgroundMap }: AppLayoutProps) {
       notes: false,
       github: false,
       resume: false,
-      spotify: false,
       [app]: true
     });
     
@@ -154,7 +155,7 @@ export default function Desktop({ initialBg, backgroundMap }: AppLayoutProps) {
     setShowNotes(app === 'notes');
     setShowGitHub(app === 'github');
     setShowResume(app === 'resume');
-    setShowSpotify(app === 'spotify');
+    
   };
 
   const handleAppClose = (app: keyof typeof activeApps) => {
@@ -163,7 +164,6 @@ export default function Desktop({ initialBg, backgroundMap }: AppLayoutProps) {
     if (app === 'notes') setShowNotes(false);
     if (app === 'github') setShowGitHub(false);
     if (app === 'resume') setShowResume(false);
-    if (app === 'spotify') setShowSpotify(false);
   };
 
   return (
@@ -199,8 +199,58 @@ export default function Desktop({ initialBg, backgroundMap }: AppLayoutProps) {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, delay: 0.5 }}
-                className="select-none"
+                className="select-none flex flex-col items-center"
               >
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.8, rotate: -5 }}
+                  animate={{ opacity: 1, scale: 1, rotate: 0 }}
+                  whileHover={{ scale: 1.05, rotate: 2 }}
+                  transition={{ 
+                    duration: 0.8, 
+                    delay: 0.4,
+                    type: "spring",
+                    stiffness: 100 
+                  }}
+                  className="mb-6 relative group"
+                >
+                  <motion.div 
+                    animate={{
+                      opacity: [0.2, 0.5, 0.2],
+                      scale: [1, 1.1, 1],
+                      rotate: [0, 360],
+                    }}
+                    transition={{
+                      opacity: { duration: 3, repeat: Infinity, ease: "easeInOut" },
+                      scale: { duration: 4, repeat: Infinity, ease: "easeInOut" },
+                      rotate: { duration: 10, repeat: Infinity, ease: "linear" }
+                    }}
+                    className="absolute -inset-4 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-full blur-2xl opacity-20 group-hover:opacity-60 transition-opacity duration-500"
+                  ></motion.div>
+                  
+                  {/* Blinking Border Ring */}
+                  <motion.div
+                    animate={{
+                      borderColor: ["#3b82f6", "#8b5cf6", "#ec4899", "#3b82f6"],
+                      opacity: [0.4, 1, 0.4],
+                      scale: [1, 1.03, 1],
+                    }}
+                    transition={{
+                      duration: 2,
+                      repeat: Infinity,
+                      ease: "easeInOut"
+                    }}
+                    className="absolute -inset-1 rounded-full border-2 z-20 pointer-events-none shadow-[0_0_15px_rgba(59,130,246,0.5)]"
+                  />
+
+                  <motion.img
+                    src={majidImg.src}
+                    alt={userConfig.name}
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
+                    className="relative w-24 h-24 md:w-32 md:h-32 rounded-full border-2 border-white/30 shadow-2xl object-cover z-10"
+                  />
+                </motion.div>
                 <h1 className="text-5xl md:text-8xl font-bold tracking-tighter leading-tight">
                   <motion.span 
                     initial={{ opacity: 0, x: -20 }}
@@ -224,7 +274,8 @@ export default function Desktop({ initialBg, backgroundMap }: AppLayoutProps) {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ duration: 1, delay: 1.2 }}
-                    className="text-lg md:text-2xl text-white/70 font-semibold tracking-wider uppercase h-8 flex items-center justify-center overflow-hidden"
+                    className="text-2xl md:text-4xl text-white/90 tracking-wide h-12 flex items-center justify-center overflow-hidden"
+                    style={{ fontFamily: "'Dancing Script', cursive" }}
                   >
                     <AnimatePresence mode="wait">
                       <motion.span
@@ -239,6 +290,22 @@ export default function Desktop({ initialBg, backgroundMap }: AppLayoutProps) {
                     </AnimatePresence>
                   </motion.div>
                 </div>
+              </motion.div>
+
+              {/* Small Top Corner Resume Button */}
+              <motion.div
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, delay: 1.5 }}
+                className="fixed top-14 right-6 z-40"
+              >
+                <button
+                  onClick={() => handleAppOpen('resume')}
+                  className="group flex items-center gap-2 px-4 py-2 bg-white/10 hover:bg-white/20 backdrop-blur-md text-white rounded-xl text-[10px] font-bold uppercase tracking-widest border border-white/20 transition-all duration-300 hover:shadow-[0_0_15px_rgba(255,255,255,0.1)] active:scale-95"
+                >
+                  <FaFileDownload className="text-sm group-hover:animate-bounce text-blue-400" />
+                  <span>View Resume</span>
+                </button>
               </motion.div>
             </div>
 
@@ -265,7 +332,6 @@ export default function Desktop({ initialBg, backgroundMap }: AppLayoutProps) {
                 onNotesClick={() => handleAppOpen('notes')}
                 onGitHubClick={() => handleAppOpen('github')}
                 onResumeClick={() => handleAppOpen('resume')}
-                onSpotifyClick={() => handleAppOpen('spotify')}
                 activeApps={activeApps}
               />
             </div>

@@ -50,9 +50,9 @@ export const userConfig = {
         "Relevant coursework: Data Structures, Algorithms, Database Management, Software Engineering, Artificial Intelligence, Computer Networks, Operating Systems, Computer Architecture, Computer Organization, Computer Security, Computer Graphics, Computer Systems, Computer Networks, Operating Systems, Computer Architecture, Computer Organization, Computer Security, Computer Graphics, Computer Systems",
       images: [
         {
-          url: "https://lh3.googleusercontent.com/gps-cs-s/AC9h4nqAarC7nJd3gDxjumhF24WwGtuxQzuOE1oBkqeZ7tjl6_nkLSRJZNNxNPN44c246HvJGuBlhSwXb_N74kNyYyhGMAM8SRlx-ja6O5udJt5D9LfQF7u2qsd0YDo5u48KB3oGWc9onQ=s1360-w1360-h1020",
-          alt: "GCET Kashmir ",
-          description: "GCET Kashmir Campus",
+          url: "https://cache.careers360.mobi/media/colleges/social-media/media-gallery/25916/2024/8/30/Campus%20Side%20View%20of%C2%A0Government%20College%20of%20Engineering%20and%20Technology%20Safapora_Campus-View.jpg",
+          alt: "GCET Safapora Kashmir ",
+          description: "GCET Safapora Kashmir Campus",
         },
       ],
     },
@@ -66,9 +66,9 @@ export const userConfig = {
         "Relevant coursework: Data Structures, Algorithms, Database Management, Software Engineering, Artificial Intelligence, Computer Networks, Operating Systems, Computer Architecture, Computer Organization, Computer Security, Computer Graphics, Computer Systems, Computer Networks, Operating Systems, Computer Architecture, Computer Organization, Computer Security, Computer Graphics, Computer Systems",
       images: [
         {
-          url: "https://kgpsrinagar.edu.in/uploads/gallery/media/S2.jpg",
-          alt: "KGP Srinagar ",
-          description: "KGP Srinagar Campus",
+          url: "https://pbs.twimg.com/profile_images/1639522433643302912/h2NllVtr_400x400.jpg",
+          alt: "KGP Srinagar Logo",
+          description: "Kashmir Government Polytechnic Srinagar",
         },
       ],
     },
@@ -103,6 +103,32 @@ export const userConfig = {
         },
       ],
     },
+    {
+      title: "Python for AI",
+      description: "Comprehensive course on Python applications in Artificial Intelligence",
+      institution: "NIT Srinagar",
+      location: "Srinagar, J&K",
+      year: "2024",
+      images: [
+        {
+          url: "https://upload.wikimedia.org/wikipedia/en/thumb/2/24/National_Institute_of_Technology%2C_Srinagar_Logo.png/250px-National_Institute_of_Technology%2C_Srinagar_Logo.png",
+          alt: "NIT Srinagar Logo",
+        },
+      ],
+    },
+    {
+      title: "Cyber Security",
+      description: "Professional certification in Cyber Security fundamentals",
+      institution: "NDSC & Skill India",
+      location: "Remote",
+      year: "2024",
+      images: [
+        {
+          url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2XtUVJDx5XwJ4YodVWJU9qkSeNXAN96PbCg&s",
+          alt: "NDSC & Skill India Logo",
+        },
+      ],
+    },
   ],
 
   skills: [
@@ -119,8 +145,8 @@ export const userConfig = {
     "MySQL",
     "PostgreSQL",
     "Docker",
-    "MongoDB",
-    "SQL Server",
+    "Next.js",
+    "Tailwind CSS",
   ],
 
   extraCurricularRoles: [
@@ -141,16 +167,16 @@ export const userConfig = {
 
   extraCurricularActivities: [
     {
-      title: "Organizer of iceless curling Championship",
-      description: "Iceless Curling",
+      title: "Participated in iceless curling Championship",
+      description: "Represented the college in the regional iceless curling tournament.",
       institution: "KGP Srinagar",
-      location: "Srinagar j&K",
-      year: "2023",
+      location: "Srinagar, J&K",
+      year: "2022",
       images: [
         {
           url: "https://static.vecteezy.com/system/resources/thumbnails/065/838/158/small/a-doodle-style-illustration-showing-curling-sport-vector.jpg",
-          alt: "KGP Srinagar",
-          description: "Iceless curling demo",
+          alt: "Iceless Curling",
+          description: "KGP Srinagar Iceless Curling Participation",
         },
       ],
     },
@@ -220,7 +246,7 @@ export const userConfig = {
       company: "Cognifyz Technologies",
       location: "Remote",
       period: "July 2024 - October 2024",
-      description: "Working on a full stack web application for a client",
+      description: "Worked as a UI/UX developer and developed user-friendly interactive frontend web applications.",
       technologies: ["HTML", "CSS", "JS"],
       images: [
         {
@@ -259,7 +285,15 @@ export const userConfig = {
     kgpwriter,
     portfolio,
     cvbuilder,
-
-    // Add more projects here
+    {
+      id: "more-projects",
+      title: "More projects to be added soon",
+      description: "Stay tuned! I'm currently developing several exciting new projects to showcase here.",
+      repoUrl: "https://github.com/majid-qurashi",
+      liveUrl: "",
+      techStack: ["Future Projects"],
+      structure: { root: "coming-soon", children: [] },
+      images: []
+    }
   ],
 } as const;

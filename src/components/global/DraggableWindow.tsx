@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
 // Global z-index counter
-let globalZIndex = 10;
+let globalZIndex = 100;
 
 // Minimum window dimensions
 const MIN_WIDTH = 450;

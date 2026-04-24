@@ -246,7 +246,7 @@ export default function MacToolbar({
                 <img
                   src="/src/assets/images/me.svg"
                   alt="Signature"
-                  className="w-[100px] h-[100px]"
+                  className="w-[100px] h-[100px] rounded-full object-cover"
                 />
               </div>
             )}

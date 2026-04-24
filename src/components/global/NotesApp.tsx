@@ -19,8 +19,8 @@ type Section =
     | 'courses'
     | 'skills'
     | 'roles'
-    | 'activities'
-    | 'competitions';
+    | 'roles'
+    | 'achievements';
 
 // Type for storing image indices per item
 type ImageIndicesState = Record<string, number>;
@@ -198,21 +198,39 @@ const NotesApp: React.FC<NotesAppProps> = ({ isOpen, onClose }) => {
         </div>
     );
 
-    const renderSkills = () => (
-        <div className="space-y-6">
-            {renderBackButton()}
-            <h2 className="text-2xl font-bold text-gray-200 mb-6">Skills</h2>
-            <div className="bg-gray-800/50 p-6 rounded-xl shadow-lg">
-                <div className="flex flex-wrap gap-2">
-                    {skills.map((skill, index) => (
-                        <span key={index} className="px-3 py-1 bg-gray-700 rounded text-sm text-gray-300">
-                            {skill}
-                        </span>
-                    ))}
+    const renderSkills = () => {
+        const colors = [
+            'bg-blue-600/20 text-blue-300 border-blue-500/30',
+            'bg-green-600/20 text-green-300 border-green-500/30',
+            'bg-purple-600/20 text-purple-300 border-purple-500/30',
+            'bg-pink-600/20 text-pink-300 border-pink-500/30',
+            'bg-yellow-600/20 text-yellow-300 border-yellow-500/30',
+            'bg-indigo-600/20 text-indigo-300 border-indigo-500/30',
+            'bg-red-600/20 text-red-300 border-red-500/30',
+            'bg-cyan-600/20 text-cyan-300 border-cyan-500/30',
+            'bg-orange-600/20 text-orange-300 border-orange-500/30',
+            'bg-teal-600/20 text-teal-300 border-teal-500/30',
+        ];
+
+        return (
+            <div className="space-y-6">
+                {renderBackButton()}
+                <h2 className="text-2xl font-bold text-gray-200 mb-6">Skills</h2>
+                <div className="bg-gray-800/30 p-8 rounded-2xl border border-white/5 shadow-2xl backdrop-blur-sm">
+                    <div className="flex flex-wrap gap-3">
+                        {skills.map((skill, index) => (
+                            <span 
+                                key={index} 
+                                className={`px-4 py-2 rounded-xl text-sm font-medium border transition-all hover:scale-110 hover:shadow-lg cursor-default ${colors[index % colors.length]}`}
+                            >
+                                {skill}
+                            </span>
+                        ))}
+                    </div>
                 </div>
             </div>
-        </div>
-    );
+        );
+    };
 
     const renderExtraCurricularRoles = () => (
         <div className="space-y-6">
@@ -234,65 +252,45 @@ const NotesApp: React.FC<NotesAppProps> = ({ isOpen, onClose }) => {
         </div>
     );
 
-    const renderExtraCurricularActivities = () => (
-        <div className="space-y-6">
-            {renderBackButton()}
-            <h2 className="text-2xl font-bold text-gray-200 mb-6">Extracurricular Activities</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {activities.map((item, index) => {
-                    const itemId = `activities-${index}`;
-                    return (
-                        <div key={itemId} className="bg-gray-800/50 p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
-                            <h3 className="text-xl font-semibold text-gray-200 mb-2">{item.title}</h3>
-                            <div className="text-gray-300 mb-2">{item.institution}, {item.location}</div>
-                            <div className="text-gray-400 mb-3">{item.year}</div>
-                            {item.images && item.images.length > 0 && renderImageCarousel(itemId, item.images)}
-                        </div>
-                    );
-                })}
-            </div>
-        </div>
-    );
+    const renderAchievements = () => {
+        const combined = [
+            ...(activities.map(a => ({ ...a, type: 'Activity' }))),
+            ...(competitions.map(c => ({ ...c, type: 'Competition' })))
+        ].sort((a, b) => b.year.localeCompare(a.year));
 
-    const renderCompetitions = () => (
-        <div className="space-y-6">
-            {renderBackButton()}
-            <h2 className="text-2xl font-bold text-gray-200 mb-6">Competitions</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {competitions.map((item, index) => {
-                    const itemId = `competitions-${index}`;
-                    return (
-                        <div key={itemId} className="bg-gray-800/50 p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
-                            <h3 className="text-xl font-semibold text-gray-200 mb-2">{item.title}</h3>
-                            <div className="text-gray-300 mb-2">{item.description}</div>
-                            <div className="text-gray-400 mb-3">Achievement: {item.achievement} ({item.year})</div>
-                            {item.images && item.images.length > 0 && renderImageCarousel(itemId, item.images)}
-                        </div>
-                    );
-                })}
+        return (
+            <div className="space-y-6">
+                {renderBackButton()}
+                <h2 className="text-2xl font-bold text-gray-200 mb-6">Activities & Competitions</h2>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    {combined.map((item, index) => {
+                        const itemId = `achievements-${index}`;
+                        return (
+                            <div key={itemId} className="bg-gray-800/50 p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow border border-white/5">
+                                <div className="flex justify-between items-start mb-2">
+                                    <h3 className="text-xl font-semibold text-gray-200">{item.title}</h3>
+                                    <span className={`px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider ${item.type === 'Competition' ? 'bg-orange-600/20 text-orange-400 border border-orange-500/30' : 'bg-pink-600/20 text-pink-400 border border-pink-500/30'}`}>
+                                        {item.type}
+                                    </span>
+                                </div>
+                                {'institution' in item && <div className="text-gray-300 mb-1">{item.institution}, {item.location}</div>}
+                                {'description' in item && <div className="text-gray-300 mb-2">{item.description}</div>}
+                                {'achievement' in item && <div className="text-gray-400 mb-2 italic">Achievement: {item.achievement}</div>}
+                                <div className="text-gray-400 mb-3">{item.year}</div>
+                                {item.images && item.images.length > 0 && renderImageCarousel(itemId, item.images)}
+                            </div>
+                        );
+                    })}
+                </div>
             </div>
-        </div>
-    );
+        );
+    };
 
     const renderMenu = () => (
         <div>
             <h2 className="text-2xl font-bold text-gray-200 mb-6">Explore me</h2>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {/* Competitions */}
-                <div
-                    className="bg-gray-800/50 p-4 rounded-lg cursor-pointer hover:bg-gray-700/50 transition-colors"
-                    onClick={() => handleSectionClick('competitions')}
-                >
-                    <div className="flex items-center gap-3 mb-2">
-                        <div className="w-12 h-12 bg-orange-600 rounded-xl flex items-center justify-center">
-                            <FaTrophy size={28} className="text-white" />
-                        </div>
-                        <h3 className="text-xl font-semibold text-gray-200">Competitions</h3>
-                    </div>
-                    <p className="text-gray-400">View my competition history and achievements</p>
-                </div>
-
                 {/* Education */}
                 <div
                     className="bg-gray-800/50 p-4 rounded-lg cursor-pointer hover:bg-gray-700/50 transition-colors"
@@ -320,33 +318,7 @@ const NotesApp: React.FC<NotesAppProps> = ({ isOpen, onClose }) => {
                     </div>
                     <p className="text-gray-400">Explore my professional work experience</p>
                 </div>
-                {/* Extracurricular Roles */}
-                <div
-                    className="bg-gray-800/50 p-4 rounded-lg cursor-pointer hover:bg-gray-700/50 transition-colors"
-                    onClick={() => handleSectionClick('roles')}
-                >
-                    <div className="flex items-center gap-3 mb-2">
-                        <div className="w-12 h-12 bg-indigo-600 rounded-xl flex items-center justify-center">
-                            <FaUsers size={28} className="text-white" />
-                        </div>
-                        <h3 className="text-xl font-semibold text-gray-200">Extracurricular Roles</h3>
-                    </div>
-                    <p className="text-gray-400">My involvement in student activities and roles</p>
-                </div>
 
-                {/* Extracurricular Activities */}
-                <div
-                    className="bg-gray-800/50 p-4 rounded-lg cursor-pointer hover:bg-gray-700/50 transition-colors"
-                    onClick={() => handleSectionClick('activities')}
-                >
-                    <div className="flex items-center gap-3 mb-2">
-                        <div className="w-12 h-12 bg-pink-600 rounded-xl flex items-center justify-center">
-                            <FaPalette size={28} className="text-white" />
-                        </div>
-                        <h3 className="text-xl font-semibold text-gray-200">Extracurricular Activities</h3>
-                    </div>
-                    <p className="text-gray-400">My participation in events and activities</p>
-                </div>
                 {/* Courses */}
                 <div
                     className="bg-gray-800/50 p-4 rounded-lg cursor-pointer hover:bg-gray-700/50 transition-colors"
@@ -374,6 +346,34 @@ const NotesApp: React.FC<NotesAppProps> = ({ isOpen, onClose }) => {
                     </div>
                     <p className="text-gray-400">See my technical skills and expertise</p>
                 </div>
+
+                {/* Activities & Competitions */}
+                <div
+                    className="bg-gray-800/50 p-4 rounded-lg cursor-pointer hover:bg-gray-700/50 transition-colors"
+                    onClick={() => handleSectionClick('achievements')}
+                >
+                    <div className="flex items-center gap-3 mb-2">
+                        <div className="w-12 h-12 bg-orange-600 rounded-xl flex items-center justify-center">
+                            <FaTrophy size={28} className="text-white" />
+                        </div>
+                        <h3 className="text-xl font-semibold text-gray-200">Activities & Competitions</h3>
+                    </div>
+                    <p className="text-gray-400">My history of championships, events, and achievements</p>
+                </div>
+
+                {/* Extracurricular Roles */}
+                <div
+                    className="bg-gray-800/50 p-4 rounded-lg cursor-pointer hover:bg-gray-700/50 transition-colors"
+                    onClick={() => handleSectionClick('roles')}
+                >
+                    <div className="flex items-center gap-3 mb-2">
+                        <div className="w-12 h-12 bg-indigo-600 rounded-xl flex items-center justify-center">
+                            <FaUsers size={28} className="text-white" />
+                        </div>
+                        <h3 className="text-xl font-semibold text-gray-200">Extracurricular Roles</h3>
+                    </div>
+                    <p className="text-gray-400">My involvement in student activities and roles</p>
+                </div>
             </div>
         </div>
     );
@@ -386,8 +386,7 @@ const NotesApp: React.FC<NotesAppProps> = ({ isOpen, onClose }) => {
             case 'courses': return 'Courses Notes';
             case 'skills': return 'Skills Notes';
             case 'roles': return 'Extracurricular Roles Notes';
-            case 'activities': return 'Extracurricular Activities Notes';
-            case 'competitions': return 'Competitions Notes';
+            case 'achievements': return 'Activities & Competitions Notes';
             default: return 'Notes';
         }
     };
@@ -411,8 +410,7 @@ const NotesApp: React.FC<NotesAppProps> = ({ isOpen, onClose }) => {
                     {activeSection === 'courses' && renderCourses()}
                     {activeSection === 'skills' && renderSkills()}
                     {activeSection === 'roles' && renderExtraCurricularRoles()}
-                    {activeSection === 'activities' && renderExtraCurricularActivities()}
-                    {activeSection === 'competitions' && renderCompetitions()}
+                    {activeSection === 'achievements' && renderAchievements()}
                 </div>
             </div>
         </DraggableWindow>

@@ -144,9 +144,22 @@ const GitHubViewer: React.FC<GitHubViewerProps> = ({ isOpen, onClose }) => {
                 {(userConfig.projects as unknown as Project[]).map((project) => (
                   <div
                     key={project.id}
-                    className="bg-gray-800/50 p-4 rounded-lg cursor-pointer transition-colors hover:bg-gray-700/50"
+                    className={`bg-gray-800/50 p-4 rounded-lg cursor-pointer transition-all hover:bg-gray-700/50 relative overflow-hidden group ${
+                      project.id === 'more-projects' ? 'border border-blue-500/20 animate-pulse' : ''
+                    }`}
                     onClick={() => handleProjectClick(project)}
                   >
+                    {project.id === 'more-projects' && (
+                      <div className="absolute top-0 left-0 w-1 h-full bg-blue-500 animate-pulse" />
+                    )}
+                    {project.id === 'more-projects' && (
+                      <div className="absolute top-2 right-2">
+                        <span className="relative flex h-3 w-3">
+                          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                          <span className="relative inline-flex rounded-full h-3 w-3 bg-blue-500"></span>
+                        </span>
+                      </div>
+                    )}
                     {project.images && project.images.length > 0 && (
                       <div className="w-full h-48 mb-3 overflow-hidden rounded-lg">
                         <img 
