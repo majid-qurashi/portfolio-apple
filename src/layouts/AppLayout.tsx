@@ -15,6 +15,7 @@ import Spotlight from '../components/global/Spotlight';
 import ControlCenter from '../components/global/ControlCenter';
 import DynamicIsland from '../components/global/DynamicIsland';
 import NotificationSystem from '../components/global/NotificationSystem';
+import SiriOrb from '../components/global/SiriOrb';
 import { userConfig } from '../config/userConfig';
 import majidImg from '../assets/images/majid.jpg';
 import { FaFileDownload } from 'react-icons/fa';
@@ -225,6 +226,7 @@ export default function Desktop({ initialBg, backgroundMap }: AppLayoutProps) {
               showResume ? 'Resume' : null
             } />
             <NotificationSystem />
+            <SiriOrb onClick={() => handleAppOpen('terminal')} />
             
             {/* Optional backdrop image if you want to mix it with the dynamic background */}
             <div
