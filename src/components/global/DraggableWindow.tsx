@@ -129,7 +129,7 @@ export default function DraggableWindow({
       transition={{ type: 'spring', damping: 25, stiffness: 300 }}
       className={`${
         isMobile ? 'fixed top-16 bottom-24 left-4 right-4 rounded-2xl' : 'fixed rounded-2xl'
-      } glass-dark shadow-2xl overflow-hidden border border-white/10 ${
+      } glass-dark shadow-2xl overflow-hidden border ${
         isDragging ? 'cursor-grabbing' : 'cursor-default'
       } ${className}`}
       style={{
@@ -140,17 +140,21 @@ export default function DraggableWindow({
           height: size.height,
         }),
         zIndex,
+        borderColor: 'var(--glass-border)',
         transition: (isDragging || isResizing) ? 'none' : 'all 0.2s cubic-bezier(0.4, 0, 0.2, 1)',
       }}
       onMouseDown={handleMouseDown}
     >
-      <div className="window-header bg-white/5 h-10 flex items-center space-x-2 px-4 rounded-t-2xl sticky top-0 left-0 right-0 z-10 backdrop-blur-md border-b border-white/5">
+      <div 
+        className="window-header h-10 flex items-center space-x-2 px-4 rounded-t-2xl sticky top-0 left-0 right-0 z-10 backdrop-blur-md border-b"
+        style={{ backgroundColor: 'var(--glass-bg)', borderColor: 'var(--glass-border)' }}
+      >
         <div className="flex space-x-2">
           <button onClick={onClose} className="w-3.5 h-3.5 rounded-full bg-red-500 hover:bg-red-600 transition-colors flex items-center justify-center group" />
           <div className="w-3.5 h-3.5 rounded-full bg-yellow-500 opacity-80" />
           <div className="w-3.5 h-3.5 rounded-full bg-green-500 opacity-80" />
         </div>
-        <span className="text-sm text-gray-200 flex-grow text-center font-medium tracking-tight">
+        <span className="text-sm flex-grow text-center font-medium tracking-tight" style={{ color: 'var(--text-primary)' }}>
           {title}
         </span>
       </div>

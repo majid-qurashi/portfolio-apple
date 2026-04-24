@@ -220,20 +220,23 @@ If a question is unrelated to my work or portfolio, say: "That's outside my area
         y: Math.floor(window.innerHeight * 0.1),
       }}
       initialSize={{ width: 700, height: 500 }}
-      className="bg-black/90 backdrop-blur-sm"
+      className="overflow-hidden"
     >
-      <div className="p-1 text-gray-200 font-mono text-sm h-full flex flex-col overflow-hidden">
-        <div className="flex-1 overflow-y-auto rounded-lg p-1">
+      <div 
+        className="p-1 font-mono text-sm h-full flex flex-col overflow-hidden transition-colors duration-300"
+        style={{ backgroundColor: 'var(--panel-bg)', color: 'var(--text-primary)' }}
+      >
+        <div className="flex-1 overflow-y-auto rounded-lg p-3">
           {chatHistory.messages.map((msg, index) => (
             <div key={index} className="mb-2">
               {msg.role === "user" ? (
                 <div className="flex items-start space-x-2">
-                  <span className="text-green-400 font-bold">{">"}</span>
+                  <span className="text-blue-500 font-bold">{">"}</span>
                   <pre className="whitespace-pre-wrap">{msg.content}</pre>
                 </div>
               ) : (
                 <div className="flex items-start space-x-2">
-                  <span className="text-green-400 font-bold">
+                  <span className="text-green-500 font-bold">
                     majid
                   </span>
                   <pre className="whitespace-pre-wrap">{msg.content}</pre>
@@ -242,33 +245,38 @@ If a question is unrelated to my work or portfolio, say: "That's outside my area
             </div>
           ))}
           {isTyping && (
-            <div className="flex items-center space-x-1">
+            <div className="flex items-center space-x-1 p-2">
               <div
-                className="w-2 h-2 bg-green-400 rounded-full animate-bounce"
+                className="w-2 h-2 bg-blue-500 rounded-full animate-bounce"
                 style={{ animationDelay: "0ms" }}
               ></div>
               <div
-                className="w-2 h-2 bg-green-400 rounded-full animate-bounce"
+                className="w-2 h-2 bg-blue-500 rounded-full animate-bounce"
                 style={{ animationDelay: "150ms" }}
               ></div>
               <div
-                className="w-2 h-2 bg-green-400 rounded-full animate-bounce"
+                className="w-2 h-2 bg-blue-500 rounded-full animate-bounce"
                 style={{ animationDelay: "300ms" }}
               ></div>
             </div>
           )}
           <div ref={messagesEndRef} />
         </div>
-        <form onSubmit={handleSubmit} className="mt-2 rounded-lg p-2">
+        <form 
+          onSubmit={handleSubmit} 
+          className="mt-2 border-t p-2"
+          style={{ borderColor: 'var(--glass-border)', backgroundColor: 'var(--glass-bg)' }}
+        >
           <div className="flex items-center space-x-2">
-            <span className="whitespace-nowrap text-green-400 font-bold text-xs sm:text-base">
+            <span className="whitespace-nowrap text-green-500 font-bold text-xs sm:text-base">
               majid %
             </span>
             <input
               type="text"
               value={chatHistory.input}
               onChange={handleInputChange}
-              className="flex-1 bg-transparent outline-none text-white placeholder-gray-400 text-sm sm:text-base p-1"
+              style={{ color: 'var(--text-primary)' }}
+              className="flex-1 bg-transparent outline-none placeholder-gray-500 text-sm sm:text-base p-1"
               placeholder={placeholder}
               autoFocus
             />

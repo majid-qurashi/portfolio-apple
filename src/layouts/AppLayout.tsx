@@ -11,6 +11,9 @@ import ResumeViewer from '../components/global/ResumeViewer';
 import DynamicBackground from '../components/global/DynamicBackground';
 import BootSequence from '../components/global/BootSequence';
 import CustomCursor from '../components/global/CustomCursor';
+import Spotlight from '../components/global/Spotlight';
+import ControlCenter from '../components/global/ControlCenter';
+import DynamicIsland from '../components/global/DynamicIsland';
 import { userConfig } from '../config/userConfig';
 import majidImg from '../assets/images/majid.jpg';
 import { FaFileDownload } from 'react-icons/fa';
@@ -36,6 +39,9 @@ export default function Desktop({ initialBg, backgroundMap }: AppLayoutProps) {
   const [isBooted, setIsBooted] = useState(false);
   const [currentTutorialStep, setCurrentTutorialStep] = useState(0);
   const [showTutorial, setShowTutorial] = useState(false);
+  const [showSpotlight, setShowSpotlight] = useState(false);
+  const [showControlCenter, setShowControlCenter] = useState(false);
+  const [theme, setTheme] = useState<'dark' | 'light'>('dark');
 
   const roles = [
     "Software Engineer",
@@ -51,6 +57,25 @@ export default function Desktop({ initialBg, backgroundMap }: AppLayoutProps) {
     }, 3000);
     return () => clearInterval(timer);
   }, []);
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+        e.preventDefault();
+        setShowSpotlight(prev => !prev);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, []);
+
+  useEffect(() => {
+    if (theme === 'light') {
+      document.documentElement.classList.add('light');
+    } else {
+      document.documentElement.classList.remove('light');
+    }
+  }, [theme]);
 
   useEffect(() => {
     console.log(
@@ -192,6 +217,12 @@ export default function Desktop({ initialBg, backgroundMap }: AppLayoutProps) {
             className='w-full max-w-full h-screen overflow-hidden flex flex-col relative'
           >
             <DynamicBackground />
+            <DynamicIsland activeApp={
+              showTerminal ? 'Terminal' : 
+              showNotes ? 'Notes' : 
+              showGitHub ? 'Projects' : 
+              showResume ? 'Resume' : null
+            } />
             
             {/* Optional backdrop image if you want to mix it with the dynamic background */}
             <div
@@ -203,6 +234,19 @@ export default function Desktop({ initialBg, backgroundMap }: AppLayoutProps) {
               <MacToolbar 
                 onTerminalClick={() => handleAppOpen('terminal')} 
                 onShowTutorial={resetTutorial}
+                onSearchClick={() => setShowSpotlight(true)}
+                onControlCenterClick={() => setShowControlCenter(prev => !prev)}
+                theme={theme}
+              />
+              <ControlCenter 
+                isOpen={showControlCenter} 
+                onClose={() => setShowControlCenter(false)} 
+                theme={theme}
+                toggleTheme={() => setTheme(prev => prev === 'dark' ? 'light' : 'dark')}
+              />
+              <Spotlight 
+                isOpen={showSpotlight} 
+                onClose={() => setShowSpotlight(false)} 
               />
             </div>
 
@@ -268,7 +312,8 @@ export default function Desktop({ initialBg, backgroundMap }: AppLayoutProps) {
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.8, delay: 0.5 }}
-                    className="text-white/40 font-medium text-2xl md:text-5xl block mb-4"
+                    style={{ color: 'var(--text-muted)' }}
+                    className="font-medium text-2xl md:text-5xl block mb-4"
                   >
                     Hey,
                   </motion.span>
@@ -286,8 +331,11 @@ export default function Desktop({ initialBg, backgroundMap }: AppLayoutProps) {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ duration: 1, delay: 1.2 }}
-                    className="text-2xl md:text-4xl text-white/90 tracking-wide h-12 flex items-center justify-center overflow-hidden"
-                    style={{ fontFamily: "'Dancing Script', cursive" }}
+                    style={{ 
+                      fontFamily: "'Dancing Script', cursive",
+                      color: 'var(--text-primary)'
+                    }}
+                    className="text-2xl md:text-4xl tracking-wide h-12 flex items-center justify-center overflow-hidden"
                   >
                     <AnimatePresence mode="wait">
                       <motion.span
@@ -313,9 +361,14 @@ export default function Desktop({ initialBg, backgroundMap }: AppLayoutProps) {
               >
                 <button
                   onClick={() => handleAppOpen('resume')}
-                  className="group flex items-center gap-2 px-4 py-2 bg-white/10 hover:bg-white/20 backdrop-blur-md text-white rounded-xl text-[10px] font-bold uppercase tracking-widest border border-white/20 transition-all duration-300 hover:shadow-[0_0_15px_rgba(255,255,255,0.1)] active:scale-95"
+                  style={{ 
+                    backgroundColor: 'var(--btn-bg)', 
+                    color: 'var(--text-primary)',
+                    borderColor: 'var(--glass-border)'
+                  }}
+                  className="group flex items-center gap-1.5 px-3 py-1.5 backdrop-blur-md rounded-lg text-[9px] font-bold uppercase tracking-wider border transition-all duration-300 hover:shadow-[0_0_10px_rgba(255,255,255,0.05)] active:scale-95"
                 >
-                  <FaFileDownload className="text-sm group-hover:animate-bounce text-blue-400" />
+                  <FaFileDownload className="text-xs group-hover:animate-bounce text-blue-400" />
                   <span>View Resume</span>
                 </button>
               </motion.div>

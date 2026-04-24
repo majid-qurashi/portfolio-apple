@@ -30,16 +30,17 @@ export default function DynamicBackground() {
   }, [mouseX, mouseY]);
 
   return (
-    <div className="fixed inset-0 z-[-1] overflow-hidden bg-[#0a0a0a]">
+    <div className="fixed inset-0 z-[-1] overflow-hidden transition-colors duration-500" style={{ backgroundColor: 'var(--bg-color)' }}>
       {/* Animated Mesh Gradients */}
       <motion.div
-        className="absolute top-[-25%] left-[-25%] w-[150%] h-[150%] opacity-50"
+        className="absolute top-[-25%] left-[-25%] w-[150%] h-[150%] transition-opacity duration-500"
         style={{
           background: `
             radial-gradient(circle at 50% 50%, rgba(76, 29, 149, 0.4) 0%, transparent 50%),
             radial-gradient(circle at 20% 80%, rgba(30, 64, 175, 0.3) 0%, transparent 40%),
             radial-gradient(circle at 80% 20%, rgba(139, 92, 246, 0.3) 0%, transparent 40%)
           `,
+          opacity: 'var(--bg-gradient-opacity, 0.5)',
           x: x1,
           y: y1,
           scale: 1.1,
@@ -47,9 +48,10 @@ export default function DynamicBackground() {
       />
 
       <motion.div
-        className="absolute inset-0 opacity-30"
+        className="absolute inset-0 transition-opacity duration-500"
         style={{
           background: 'radial-gradient(circle at 50% 50%, rgba(29, 78, 216, 0.2) 0%, transparent 70%)',
+          opacity: 'var(--bg-glow-opacity, 0.3)',
           x: x2,
           y: y2,
         }}

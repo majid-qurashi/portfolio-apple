@@ -69,7 +69,7 @@ const GitHubViewer: React.FC<GitHubViewerProps> = ({ isOpen, onClose }) => {
           ) : (
             <FaFile className="text-blue-400 mr-2" />
           )}
-          <span className="text-gray-200">{node.name}</span>
+          <span style={{ color: 'var(--text-primary)' }}>{node.name}</span>
         </div>
         {node.type === 'directory' && isExpanded && node.children && (
           <div className="ml-4">
@@ -86,7 +86,7 @@ const GitHubViewer: React.FC<GitHubViewerProps> = ({ isOpen, onClose }) => {
       <div>
         <div className="flex items-center p-1 rounded">
           <FaFolder className="text-yellow-500 mr-2" />
-          <span className="text-gray-200 font-bold">{projectStructure.root}</span>
+          <span className="font-bold" style={{ color: 'var(--text-primary)' }}>{projectStructure.root}</span>
         </div>
         <div className="ml-4">
           {projectStructure.children.map((child) => renderFileTree(child, projectStructure.root))}
@@ -139,13 +139,14 @@ const GitHubViewer: React.FC<GitHubViewerProps> = ({ isOpen, onClose }) => {
         <div className="overflow-y-auto flex-grow min-h-0 p-4 md:p-6">
           {!showStructure ? (
             <>
-              <h2 className="text-2xl font-bold mb-4 text-gray-200">My Projects</h2>
+              <h2 className="text-2xl font-bold mb-4" style={{ color: 'var(--text-primary)' }}>My Projects</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {(userConfig.projects as unknown as Project[]).map((project) => (
                   <div
                     key={project.id}
-                    className={`bg-gray-800/50 p-4 rounded-lg cursor-pointer transition-all hover:bg-gray-700/50 relative overflow-hidden group ${
-                      project.id === 'more-projects' ? 'border border-blue-500/20 animate-pulse' : ''
+                    style={{ backgroundColor: 'var(--glass-bg)', borderColor: 'var(--glass-border)' }}
+                    className={`p-4 rounded-lg cursor-pointer transition-all hover:opacity-80 border relative overflow-hidden group ${
+                      project.id === 'more-projects' ? 'animate-pulse' : ''
                     }`}
                     onClick={() => handleProjectClick(project)}
                   >
@@ -169,13 +170,14 @@ const GitHubViewer: React.FC<GitHubViewerProps> = ({ isOpen, onClose }) => {
                         />
                       </div>
                     )}
-                    <h3 className="text-xl font-semibold mb-2 text-gray-200">{project.title}</h3>
-                    <p className="text-gray-400 mb-2">{project.description}</p>
+                    <h3 className="text-xl font-semibold mb-2" style={{ color: 'var(--text-primary)' }}>{project.title}</h3>
+                    <p className="mb-2" style={{ color: 'var(--text-secondary)' }}>{project.description}</p>
                     <div className="flex flex-wrap gap-2 mb-2">
                       {project.techStack.map((tech) => (
                         <span
                           key={tech}
-                          className="px-2 py-1 bg-gray-700 rounded text-xs text-gray-300"
+                          style={{ backgroundColor: 'var(--btn-bg)', color: 'var(--text-secondary)' }}
+                          className="px-2 py-1 rounded text-xs"
                         >
                           {tech}
                         </span>
@@ -186,7 +188,8 @@ const GitHubViewer: React.FC<GitHubViewerProps> = ({ isOpen, onClose }) => {
                         href={project.repoUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-2 text-sm hover:text-blue-400 text-gray-300"
+                        className="flex items-center gap-2 text-sm hover:text-blue-500"
+                        style={{ color: 'var(--text-muted)' }}
                         onClick={(e) => e.stopPropagation()}
                       >
                         <FaGithub />
@@ -197,7 +200,8 @@ const GitHubViewer: React.FC<GitHubViewerProps> = ({ isOpen, onClose }) => {
                           href={project.liveUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="flex items-center gap-2 text-sm hover:text-blue-400 text-gray-300"
+                          className="flex items-center gap-2 text-sm hover:text-blue-500"
+                          style={{ color: 'var(--text-muted)' }}
                           onClick={(e) => e.stopPropagation()}
                         >
                           <FaExternalLinkAlt />
@@ -213,23 +217,30 @@ const GitHubViewer: React.FC<GitHubViewerProps> = ({ isOpen, onClose }) => {
             <div>
               <button
                 onClick={handleBackClick}
-                className="flex items-center gap-2 text-gray-300 hover:text-gray-100 mb-4"
+                style={{ color: 'var(--text-secondary)' }}
+                className="flex items-center gap-2 hover:opacity-70 mb-4 transition-opacity"
               >
                 <FaChevronLeft />
                 <span>Back to Projects</span>
               </button>
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div className="bg-gray-800/50 rounded-lg p-4">
-                  <h3 className="text-xl font-semibold mb-4 text-gray-200">Project Structure</h3>
+                <div 
+                  className="rounded-lg p-4 border" 
+                  style={{ backgroundColor: 'var(--glass-bg)', borderColor: 'var(--glass-border)' }}
+                >
+                  <h3 className="text-xl font-semibold mb-4" style={{ color: 'var(--text-primary)' }}>Project Structure</h3>
                   <div className="font-mono text-sm">
                     {selectedProject && renderProjectStructure(selectedProject.structure)}
                   </div>
                 </div>
                 
                 {selectedProject && selectedProject.images && selectedProject.images.length > 0 && (
-                  <div className="bg-gray-800/50 rounded-lg p-4">
-                    <h3 className="text-xl font-semibold mb-4 text-gray-200">Screenshots</h3>
+                  <div 
+                    className="rounded-lg p-4 border"
+                    style={{ backgroundColor: 'var(--glass-bg)', borderColor: 'var(--glass-border)' }}
+                  >
+                    <h3 className="text-xl font-semibold mb-4" style={{ color: 'var(--text-primary)' }}>Screenshots</h3>
                     <div className="relative">
                       <div className="rounded-lg overflow-hidden mb-2">
                         <img 
@@ -239,7 +250,7 @@ const GitHubViewer: React.FC<GitHubViewerProps> = ({ isOpen, onClose }) => {
                         />
                       </div>
                       
-                      <div className="text-sm text-gray-300 mb-3">
+                      <div className="text-sm mb-3" style={{ color: 'var(--text-secondary)' }}>
                         {selectedProject.images[activeImageIndex].description}
                       </div>
                       
@@ -247,16 +258,16 @@ const GitHubViewer: React.FC<GitHubViewerProps> = ({ isOpen, onClose }) => {
                         <div className="flex justify-between mt-2">
                           <button 
                             onClick={handlePrevImage}
-                            className="bg-gray-700 hover:bg-gray-600 text-white rounded-full w-8 h-8 flex items-center justify-center"
+                            className="bg-blue-500 hover:bg-blue-600 text-white rounded-full w-8 h-8 flex items-center justify-center transition-colors"
                           >
                             ←
                           </button>
-                          <span className="text-gray-400">
+                          <span style={{ color: 'var(--text-muted)' }}>
                             {activeImageIndex + 1} / {selectedProject.images.length}
                           </span>
                           <button 
                             onClick={handleNextImage}
-                            className="bg-gray-700 hover:bg-gray-600 text-white rounded-full w-8 h-8 flex items-center justify-center"
+                            className="bg-blue-500 hover:bg-blue-600 text-white rounded-full w-8 h-8 flex items-center justify-center transition-colors"
                           >
                             →
                           </button>
@@ -269,7 +280,8 @@ const GitHubViewer: React.FC<GitHubViewerProps> = ({ isOpen, onClose }) => {
                           href={selectedProject.repoUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="flex items-center gap-2 text-sm hover:text-blue-400 text-gray-300 bg-gray-700/50 p-2 rounded-lg"
+                          style={{ backgroundColor: 'var(--btn-bg)', color: 'var(--text-primary)', borderColor: 'var(--glass-border)' }}
+                          className="flex items-center gap-2 text-sm hover:opacity-80 p-2 rounded-lg border transition-opacity"
                         >
                           <FaGithub />
                           <span>Visit GitHub Repository</span>
@@ -282,7 +294,8 @@ const GitHubViewer: React.FC<GitHubViewerProps> = ({ isOpen, onClose }) => {
                           href={selectedProject.liveUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="flex items-center gap-2 text-sm hover:text-blue-400 text-gray-300 bg-gray-700/50 p-2 rounded-lg"
+                          style={{ backgroundColor: 'var(--btn-bg)', color: 'var(--text-primary)', borderColor: 'var(--glass-border)' }}
+                          className="flex items-center gap-2 text-sm hover:opacity-80 p-2 rounded-lg border transition-opacity"
                         >
                           <FaLink />
                           <span>Visit Live Site</span>

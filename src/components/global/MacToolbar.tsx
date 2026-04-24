@@ -16,6 +16,7 @@ import {
 import { VscVscode } from "react-icons/vsc";
 import { userConfig } from "../../config/userConfig";
 import HelpModal from "./HelpModal";
+import meSvg from "../../assets/images/me.svg";
 
 type MenuItem = {
   label: string;
@@ -27,11 +28,17 @@ type MenuItem = {
 interface MacToolbarProps {
   onTerminalClick?: () => void;
   onShowTutorial?: () => void;
+  onSearchClick?: () => void;
+  onControlCenterClick?: () => void;
+  theme: 'dark' | 'light';
 }
 
 export default function MacToolbar({
   onTerminalClick,
   onShowTutorial,
+  onSearchClick,
+  onControlCenterClick,
+  theme,
 }: MacToolbarProps) {
   const [currentDateTime, setCurrentDateTime] = useState(new Date());
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
@@ -168,7 +175,9 @@ export default function MacToolbar({
         <div key={index} className="px-1.5">
           <button
             onClick={() => handleAction(item.action)}
-            className="w-full px-3 py-1.5 text-left text-[13px] text-gray-200 hover:bg-blue-600 hover:text-white rounded-md flex items-center gap-2.5 transition-colors group"
+            className={`w-full px-3 py-1.5 text-left text-[13px] rounded-md flex items-center gap-2.5 transition-colors group ${
+              theme === 'dark' ? 'text-gray-200 hover:bg-blue-600 hover:text-white' : 'text-gray-800 hover:bg-blue-500 hover:text-white'
+            }`}
           >
             <span className="opacity-70 group-hover:opacity-100">{item.icon}</span>
             {item.label}
@@ -213,7 +222,9 @@ export default function MacToolbar({
           <motion.div 
             initial={{ scaleX: 0.8 }}
             animate={{ scaleX: 1 }}
-            className="w-32 h-8 bg-black rounded-[20px] shadow-lg flex items-center justify-center pointer-events-auto"
+            whileTap={{ scale: 0.9 }}
+            onClick={onSearchClick}
+            className="w-32 h-8 bg-black rounded-[20px] shadow-lg flex items-center justify-center pointer-events-auto cursor-pointer"
           >
             <div className="w-1.5 h-1.5 rounded-full bg-blue-500/50 mr-2" />
             <div className="w-1 h-1 rounded-full bg-white/20" />
@@ -222,15 +233,19 @@ export default function MacToolbar({
 
         {/* Status Icons - Right */}
         <div className="w-20 flex justify-end gap-1.5">
-          <div className="flex items-center gap-1.5 bg-black/30 backdrop-blur-md px-3 py-1 rounded-full pointer-events-auto">
-            <IoCellular size={14} className="text-white" />
+          <div 
+            className="flex items-center gap-1.5 bg-black/30 backdrop-blur-md px-3 py-1 rounded-full pointer-events-auto cursor-pointer active:scale-95 transition-transform"
+            onClick={onControlCenterClick}
+          >
             <MdWifi size={14} className="text-white" />
             <IoBatteryHalfOutline size={18} className="text-white" />
           </div>
         </div>
       </div>
 
-      <div className="sticky top-0 z-50 hidden md:flex bg-black/10 backdrop-blur-xl text-white h-7 px-4 items-center justify-between text-[13px] border-b border-white/5">
+      <div className={`sticky top-0 z-50 hidden md:flex backdrop-blur-xl h-7 px-4 items-center justify-between text-[13px] border-b transition-colors duration-300 ${
+        theme === 'dark' ? 'bg-black/10 text-white border-white/5' : 'bg-white/30 text-gray-900 border-black/5'
+      }`}>
         <div className="flex items-center space-x-4" ref={menuRef}>
           <FaApple size={16} />
           <div className="relative">
@@ -244,7 +259,7 @@ export default function MacToolbar({
             {showSignature && (
               <div className="absolute top-full left-0 mt-1 bg-white/98 backdrop-blur-sm rounded-lg p-4 shadow-xl z-[100]">
                 <img
-                  src="/src/assets/images/me.svg"
+                  src={meSvg.src}
                   alt="Signature"
                   className="w-[100px] h-[100px] rounded-full object-cover"
                 />
@@ -270,8 +285,22 @@ export default function MacToolbar({
             onClick={handleVSCodeClick}
             title="Open in VSCode"
           />
-          <MdWifi size={16} />
-          <IoSearchSharp size={16} />
+          <IoSearchSharp 
+            size={16} 
+            className="cursor-pointer hover:text-blue-400 transition-colors" 
+            onClick={onSearchClick}
+          />
+          <div 
+            className="cursor-pointer hover:text-blue-400 transition-colors flex items-center gap-1.5" 
+            onClick={onControlCenterClick}
+          >
+            <MdWifi size={16} />
+            <div className="flex flex-col gap-[2px] w-3.5">
+              <div className={`h-[2px] w-full rounded-full ${theme === 'dark' ? 'bg-white' : 'bg-gray-900'}`} />
+              <div className={`h-[2px] w-2/3 rounded-full ${theme === 'dark' ? 'bg-white' : 'bg-gray-900'}`} />
+              <div className={`h-[2px] w-full rounded-full ${theme === 'dark' ? 'bg-white' : 'bg-gray-900'}`} />
+            </div>
+          </div>
           <span className="cursor-default">
             {formatMacDate(currentDateTime)}
           </span>

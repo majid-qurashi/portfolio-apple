@@ -61,7 +61,8 @@ const DesktopDock = ({
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: 10 }}
-      className="absolute -top-12 left-1/2 transform -translate-x-1/2 bg-black/60 backdrop-blur-md text-white px-3 py-1.5 rounded-lg text-xs font-medium border border-white/10 whitespace-nowrap z-50 shadow-2xl"
+      style={{ backgroundColor: 'var(--panel-bg)', color: 'var(--text-primary)' }}
+      className="absolute -top-12 left-1/2 transform -translate-x-1/2 backdrop-blur-md px-3 py-1.5 rounded-lg text-xs font-medium border border-white/10 whitespace-nowrap z-50 shadow-2xl"
     >
       {text}
     </motion.div>

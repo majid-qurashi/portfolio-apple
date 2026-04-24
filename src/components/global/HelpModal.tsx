@@ -67,6 +67,18 @@ export default function HelpModal({
       content: "Use the menu bar to access my resume, projects, and contact information. Hover over my name for a cool surprise!",
       animation: "animate-slide-in-up",
       button: null
+    },
+    {
+      title: "Spotlight Search",
+      content: "Need to find something fast? Press Cmd + K or click the search icon in the toolbar. On mobile, just tap the Dynamic Island (center black pill)!",
+      animation: "animate-fade-in",
+      button: null
+    },
+    {
+      title: "Control Center",
+      content: "Click the icons in the top-right corner to open the Control Center. On mobile, tap the status icons (Wi-Fi/Battery area)!",
+      animation: "animate-slide-in-right",
+      button: null
     }
   ];
 

@@ -36,14 +36,17 @@ const ResumeViewer: React.FC<ResumeViewerProps> = ({ isOpen, onClose }) => {
       className="w-[90%] h-[90%] max-w-5xl"
       initialSize={{ width: 800, height: 600 }}
     >
-      <div className="flex flex-col h-full bg-white overflow-hidden">
+      <div className="flex flex-col h-full overflow-hidden" style={{ backgroundColor: 'var(--bg-color)' }}>
         {/* Modern Header with Download Button */}
-        <div className="flex items-center justify-between px-6 py-3 bg-gray-50 border-b border-gray-200">
+        <div 
+          className="flex items-center justify-between px-6 py-3 border-b"
+          style={{ backgroundColor: 'var(--glass-bg)', borderColor: 'var(--glass-border)' }}
+        >
           <div className="flex items-center gap-2">
             <div className="w-3 h-3 bg-red-400 rounded-full" />
             <div className="w-3 h-3 bg-yellow-400 rounded-full" />
             <div className="w-3 h-3 bg-green-400 rounded-full" />
-            <span className="ml-2 text-[10px] font-bold text-gray-400 uppercase tracking-[0.2em]">Document Viewer</span>
+            <span className="ml-2 text-[10px] font-bold uppercase tracking-[0.2em]" style={{ color: 'var(--text-muted)' }}>Document Viewer</span>
           </div>
           <a 
             href={userConfig.resume.localPath} 
@@ -56,7 +59,7 @@ const ResumeViewer: React.FC<ResumeViewerProps> = ({ isOpen, onClose }) => {
         </div>
         
         {/* PDF Content */}
-        <div className="flex-grow bg-gray-500 p-2 md:p-6 overflow-hidden flex flex-col items-center">
+        <div className="flex-grow p-2 md:p-6 overflow-hidden flex flex-col items-center" style={{ backgroundColor: 'var(--bg-color)' }}>
           <div className="w-full max-w-4xl h-full bg-white shadow-2xl rounded-sm overflow-hidden relative">
             {/* Backdrop to prevent black screen flash */}
             <div className="absolute inset-0 bg-white flex items-center justify-center">
@@ -80,7 +83,7 @@ const ResumeViewer: React.FC<ResumeViewerProps> = ({ isOpen, onClose }) => {
               </div>
             </iframe>
           </div>
-          <div className="mt-4 text-gray-200 text-xs opacity-50">
+          <div className="mt-4 text-xs opacity-50" style={{ color: 'var(--text-muted)' }}>
             PDF Viewer powered by browser
           </div>
         </div>

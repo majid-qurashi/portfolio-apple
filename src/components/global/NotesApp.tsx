@@ -75,7 +75,8 @@ const NotesApp: React.FC<NotesAppProps> = ({ isOpen, onClose }) => {
     const renderBackButton = () => (
         <button
             onClick={handleBackClick}
-            className="flex items-center gap-2 text-gray-300 hover:text-gray-100 mb-4"
+            style={{ color: 'var(--text-secondary)' }}
+            className="flex items-center gap-2 hover:opacity-70 mb-4 transition-opacity"
         >
             <FaChevronLeft />
             <span>Back to Menu</span>
@@ -99,7 +100,7 @@ const NotesApp: React.FC<NotesAppProps> = ({ isOpen, onClose }) => {
                     />
                 </div>
 
-                <div className="text-sm text-gray-400 mb-3">
+                <div className="text-sm mb-3" style={{ color: 'var(--text-muted)' }}>
                     {images[currentIndex].description}
                 </div>
 
@@ -134,11 +135,15 @@ const NotesApp: React.FC<NotesAppProps> = ({ isOpen, onClose }) => {
                 {education.map((item, index) => {
                     const itemId = `education-${index}`;
                     return (
-                        <div key={itemId} className="bg-gray-800/50 p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
-                            <h3 className="text-xl font-semibold text-gray-200 mb-2">{item.degree} {item.major && `- ${item.major}`}</h3>
-                            <div className="text-gray-300 mb-2">{item.institution}, {item.location}</div>
-                            <div className="text-gray-400 mb-3">{item.year}</div>
-                            <p className="text-gray-300 mb-4">{item.description}</p>
+                        <div 
+                            key={itemId} 
+                            style={{ backgroundColor: 'var(--glass-bg)', borderColor: 'var(--glass-border)' }}
+                            className="p-6 rounded-xl shadow-lg border hover:opacity-90 transition-opacity"
+                        >
+                            <h3 className="text-xl font-semibold mb-2" style={{ color: 'var(--text-primary)' }}>{item.degree} {item.major && `- ${item.major}`}</h3>
+                            <div className="mb-2" style={{ color: 'var(--text-secondary)' }}>{item.institution}, {item.location}</div>
+                            <div className="mb-3" style={{ color: 'var(--text-muted)' }}>{item.year}</div>
+                            <p className="mb-4" style={{ color: 'var(--text-secondary)' }}>{item.description}</p>
                             {item.images && item.images.length > 0 && renderImageCarousel(itemId, item.images)}
                         </div>
                     );
@@ -155,15 +160,23 @@ const NotesApp: React.FC<NotesAppProps> = ({ isOpen, onClose }) => {
                 {experience.map((item, index) => {
                     const itemId = `experience-${index}`;
                     return (
-                        <div key={itemId} className="bg-gray-800/50 p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
-                            <h3 className="text-xl font-semibold text-gray-200 mb-2">{item.title}</h3>
-                            <div className="text-gray-300 mb-2">{item.company}, {item.location}</div>
-                            <div className="text-gray-400 mb-3">{item.period}</div>
-                            <p className="text-gray-300 mb-4">{item.description}</p>
+                        <div 
+                            key={itemId} 
+                            style={{ backgroundColor: 'var(--glass-bg)', borderColor: 'var(--glass-border)' }}
+                            className="p-6 rounded-xl shadow-lg border hover:opacity-90 transition-opacity"
+                        >
+                            <h3 className="text-xl font-semibold mb-2" style={{ color: 'var(--text-primary)' }}>{item.title}</h3>
+                            <div className="mb-2" style={{ color: 'var(--text-secondary)' }}>{item.company}, {item.location}</div>
+                            <div className="mb-3" style={{ color: 'var(--text-muted)' }}>{item.period}</div>
+                            <p className="mb-4" style={{ color: 'var(--text-secondary)' }}>{item.description}</p>
                             {item.technologies && (
                                 <div className="flex flex-wrap gap-2 mb-4">
                                     {item.technologies.map((tech, i) => (
-                                        <span key={i} className="px-2 py-1 bg-gray-700 rounded text-xs text-gray-300">
+                                        <span 
+                                            key={i} 
+                                            style={{ backgroundColor: 'var(--btn-bg)', color: 'var(--text-secondary)' }}
+                                            className="px-2 py-1 rounded text-xs"
+                                        >
                                             {tech}
                                         </span>
                                     ))}
@@ -185,11 +198,15 @@ const NotesApp: React.FC<NotesAppProps> = ({ isOpen, onClose }) => {
                 {courses.map((item, index) => {
                     const itemId = `courses-${index}`;
                     return (
-                        <div key={itemId} className="bg-gray-800/50 p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
-                            <h3 className="text-xl font-semibold text-gray-200 mb-2">{item.title}</h3>
-                            <div className="text-gray-300 mb-2">{item.institution}, {item.location}</div>
-                            <div className="text-gray-400 mb-3">{item.year}</div>
-                            <p className="text-gray-300 mb-4">{item.description}</p>
+                        <div 
+                            key={itemId} 
+                            style={{ backgroundColor: 'var(--glass-bg)', borderColor: 'var(--glass-border)' }}
+                            className="p-6 rounded-xl shadow-lg border hover:opacity-90 transition-opacity"
+                        >
+                            <h3 className="text-xl font-semibold mb-2" style={{ color: 'var(--text-primary)' }}>{item.title}</h3>
+                            <div className="mb-2" style={{ color: 'var(--text-secondary)' }}>{item.institution}, {item.location}</div>
+                            <div className="mb-3" style={{ color: 'var(--text-muted)' }}>{item.year}</div>
+                            <p className="mb-4" style={{ color: 'var(--text-secondary)' }}>{item.description}</p>
                             {item.images && item.images.length > 0 && renderImageCarousel(itemId, item.images)}
                         </div>
                     );
@@ -216,7 +233,10 @@ const NotesApp: React.FC<NotesAppProps> = ({ isOpen, onClose }) => {
             <div className="space-y-6">
                 {renderBackButton()}
                 <h2 className="text-2xl font-bold text-gray-200 mb-6">Skills</h2>
-                <div className="bg-gray-800/30 p-8 rounded-2xl border border-white/5 shadow-2xl backdrop-blur-sm">
+                <div 
+                    style={{ backgroundColor: 'var(--glass-bg)', borderColor: 'var(--glass-border)' }}
+                    className="p-8 rounded-2xl border shadow-2xl backdrop-blur-sm"
+                >
                     <div className="flex flex-wrap gap-3">
                         {skills.map((skill, index) => (
                             <span 
@@ -240,10 +260,14 @@ const NotesApp: React.FC<NotesAppProps> = ({ isOpen, onClose }) => {
                 {roles.map((item, index) => {
                     const itemId = `roles-${index}`;
                     return (
-                        <div key={itemId} className="bg-gray-800/50 p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
-                            <h3 className="text-xl font-semibold text-gray-200 mb-2">{item.role}</h3>
-                            <div className="text-gray-300 mb-2">{item.institution}, {item.location}</div>
-                            <div className="text-gray-400 mb-3">{item.year}</div>
+                        <div 
+                            key={itemId} 
+                            style={{ backgroundColor: 'var(--glass-bg)', borderColor: 'var(--glass-border)' }}
+                            className="p-6 rounded-xl shadow-lg border hover:opacity-90 transition-opacity"
+                        >
+                            <h3 className="text-xl font-semibold mb-2" style={{ color: 'var(--text-primary)' }}>{item.role}</h3>
+                            <div className="mb-2" style={{ color: 'var(--text-secondary)' }}>{item.institution}, {item.location}</div>
+                            <div className="mb-3" style={{ color: 'var(--text-muted)' }}>{item.year}</div>
                             {item.images && item.images.length > 0 && renderImageCarousel(itemId, item.images)}
                         </div>
                     );
@@ -266,17 +290,21 @@ const NotesApp: React.FC<NotesAppProps> = ({ isOpen, onClose }) => {
                     {combined.map((item, index) => {
                         const itemId = `achievements-${index}`;
                         return (
-                            <div key={itemId} className="bg-gray-800/50 p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow border border-white/5">
+                            <div 
+                                key={itemId} 
+                                style={{ backgroundColor: 'var(--glass-bg)', borderColor: 'var(--glass-border)' }}
+                                className="p-6 rounded-xl shadow-lg border hover:opacity-90 transition-opacity"
+                            >
                                 <div className="flex justify-between items-start mb-2">
-                                    <h3 className="text-xl font-semibold text-gray-200">{item.title}</h3>
+                                    <h3 className="text-xl font-semibold" style={{ color: 'var(--text-primary)' }}>{item.title}</h3>
                                     <span className={`px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider ${item.type === 'Competition' ? 'bg-orange-600/20 text-orange-400 border border-orange-500/30' : 'bg-pink-600/20 text-pink-400 border border-pink-500/30'}`}>
                                         {item.type}
                                     </span>
                                 </div>
-                                {'institution' in item && <div className="text-gray-300 mb-1">{item.institution}, {item.location}</div>}
-                                {'description' in item && <div className="text-gray-300 mb-2">{item.description}</div>}
-                                {'achievement' in item && <div className="text-gray-400 mb-2 italic">Achievement: {item.achievement}</div>}
-                                <div className="text-gray-400 mb-3">{item.year}</div>
+                                {'institution' in item && <div className="mb-1" style={{ color: 'var(--text-secondary)' }}>{item.institution}, {item.location}</div>}
+                                {'description' in item && <div className="mb-2" style={{ color: 'var(--text-secondary)' }}>{item.description}</div>}
+                                {'achievement' in item && <div className="mb-2 italic" style={{ color: 'var(--text-muted)' }}>Achievement: {item.achievement}</div>}
+                                <div className="mb-3" style={{ color: 'var(--text-muted)' }}>{item.year}</div>
                                 {item.images && item.images.length > 0 && renderImageCarousel(itemId, item.images)}
                             </div>
                         );
@@ -288,91 +316,97 @@ const NotesApp: React.FC<NotesAppProps> = ({ isOpen, onClose }) => {
 
     const renderMenu = () => (
         <div>
-            <h2 className="text-2xl font-bold text-gray-200 mb-6">Explore me</h2>
+            <h2 className="text-2xl font-bold mb-6" style={{ color: 'var(--text-primary)' }}>Explore me</h2>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {/* Education */}
                 <div
-                    className="bg-gray-800/50 p-4 rounded-lg cursor-pointer hover:bg-gray-700/50 transition-colors"
+                    style={{ backgroundColor: 'var(--glass-bg)', borderColor: 'var(--glass-border)' }}
+                    className="p-4 rounded-lg cursor-pointer hover:opacity-80 transition-opacity border"
                     onClick={() => handleSectionClick('education')}
                 >
                     <div className="flex items-center gap-3 mb-2">
-                        <div className="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center">
+                        <div className="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center shadow-lg">
                             <FaGraduationCap size={28} className="text-white" />
                         </div>
-                        <h3 className="text-xl font-semibold text-gray-200">Education</h3>
+                        <h3 className="text-xl font-semibold" style={{ color: 'var(--text-primary)' }}>Education</h3>
                     </div>
-                    <p className="text-gray-400">View my educational background and qualifications</p>
+                    <p style={{ color: 'var(--text-secondary)' }}>View my educational background and qualifications</p>
                 </div>
 
                 {/* Experience */}
                 <div
-                    className="bg-gray-800/50 p-4 rounded-lg cursor-pointer hover:bg-gray-700/50 transition-colors"
+                    style={{ backgroundColor: 'var(--glass-bg)', borderColor: 'var(--glass-border)' }}
+                    className="p-4 rounded-lg cursor-pointer hover:opacity-80 transition-opacity border"
                     onClick={() => handleSectionClick('experience')}
                 >
                     <div className="flex items-center gap-3 mb-2">
-                        <div className="w-12 h-12 bg-green-600 rounded-xl flex items-center justify-center">
+                        <div className="w-12 h-12 bg-green-600 rounded-xl flex items-center justify-center shadow-lg">
                             <FaBriefcase size={28} className="text-white" />
                         </div>
-                        <h3 className="text-xl font-semibold text-gray-200">Professional Experience</h3>
+                        <h3 className="text-xl font-semibold" style={{ color: 'var(--text-primary)' }}>Professional Experience</h3>
                     </div>
-                    <p className="text-gray-400">Explore my professional work experience</p>
+                    <p style={{ color: 'var(--text-secondary)' }}>Explore my professional work experience</p>
                 </div>
 
                 {/* Courses */}
                 <div
-                    className="bg-gray-800/50 p-4 rounded-lg cursor-pointer hover:bg-gray-700/50 transition-colors"
+                    style={{ backgroundColor: 'var(--glass-bg)', borderColor: 'var(--glass-border)' }}
+                    className="p-4 rounded-lg cursor-pointer hover:opacity-80 transition-opacity border"
                     onClick={() => handleSectionClick('courses')}
                 >
                     <div className="flex items-center gap-3 mb-2">
-                        <div className="w-12 h-12 bg-purple-600 rounded-xl flex items-center justify-center">
+                        <div className="w-12 h-12 bg-purple-600 rounded-xl flex items-center justify-center shadow-lg">
                             <FaBookOpen size={28} className="text-white" />
                         </div>
-                        <h3 className="text-xl font-semibold text-gray-200">Courses</h3>
+                        <h3 className="text-xl font-semibold" style={{ color: 'var(--text-primary)' }}>Courses</h3>
                     </div>
-                    <p className="text-gray-400">Check out courses I have completed</p>
+                    <p style={{ color: 'var(--text-secondary)' }}>Check out courses I have completed</p>
                 </div>
 
                 {/* Skills */}
                 <div
-                    className="bg-gray-800/50 p-4 rounded-lg cursor-pointer hover:bg-gray-700/50 transition-colors"
+                    style={{ backgroundColor: 'var(--glass-bg)', borderColor: 'var(--glass-border)' }}
+                    className="p-4 rounded-lg cursor-pointer hover:opacity-80 transition-opacity border"
                     onClick={() => handleSectionClick('skills')}
                 >
                     <div className="flex items-center gap-3 mb-2">
-                        <div className="w-12 h-12 bg-red-600 rounded-xl flex items-center justify-center">
+                        <div className="w-12 h-12 bg-red-600 rounded-xl flex items-center justify-center shadow-lg">
                             <FaCode size={28} className="text-white" />
                         </div>
-                        <h3 className="text-xl font-semibold text-gray-200">Skills</h3>
+                        <h3 className="text-xl font-semibold" style={{ color: 'var(--text-primary)' }}>Skills</h3>
                     </div>
-                    <p className="text-gray-400">See my technical skills and expertise</p>
+                    <p style={{ color: 'var(--text-secondary)' }}>See my technical skills and expertise</p>
                 </div>
 
                 {/* Activities & Competitions */}
                 <div
-                    className="bg-gray-800/50 p-4 rounded-lg cursor-pointer hover:bg-gray-700/50 transition-colors"
+                    style={{ backgroundColor: 'var(--glass-bg)', borderColor: 'var(--glass-border)' }}
+                    className="p-4 rounded-lg cursor-pointer hover:opacity-80 transition-opacity border"
                     onClick={() => handleSectionClick('achievements')}
                 >
                     <div className="flex items-center gap-3 mb-2">
-                        <div className="w-12 h-12 bg-orange-600 rounded-xl flex items-center justify-center">
+                        <div className="w-12 h-12 bg-orange-600 rounded-xl flex items-center justify-center shadow-lg">
                             <FaTrophy size={28} className="text-white" />
                         </div>
-                        <h3 className="text-xl font-semibold text-gray-200">Activities & Competitions</h3>
+                        <h3 className="text-xl font-semibold" style={{ color: 'var(--text-primary)' }}>Activities & Competitions</h3>
                     </div>
-                    <p className="text-gray-400">My history of championships, events, and achievements</p>
+                    <p style={{ color: 'var(--text-secondary)' }}>My history of championships, events, and achievements</p>
                 </div>
 
                 {/* Extracurricular Roles */}
                 <div
-                    className="bg-gray-800/50 p-4 rounded-lg cursor-pointer hover:bg-gray-700/50 transition-colors"
+                    style={{ backgroundColor: 'var(--glass-bg)', borderColor: 'var(--glass-border)' }}
+                    className="p-4 rounded-lg cursor-pointer hover:opacity-80 transition-opacity border"
                     onClick={() => handleSectionClick('roles')}
                 >
                     <div className="flex items-center gap-3 mb-2">
-                        <div className="w-12 h-12 bg-indigo-600 rounded-xl flex items-center justify-center">
+                        <div className="w-12 h-12 bg-indigo-600 rounded-xl flex items-center justify-center shadow-lg">
                             <FaUsers size={28} className="text-white" />
                         </div>
-                        <h3 className="text-xl font-semibold text-gray-200">Extracurricular Roles</h3>
+                        <h3 className="text-xl font-semibold" style={{ color: 'var(--text-primary)' }}>Extracurricular Roles</h3>
                     </div>
-                    <p className="text-gray-400">My involvement in student activities and roles</p>
+                    <p style={{ color: 'var(--text-secondary)' }}>My involvement in student activities and roles</p>
                 </div>
             </div>
         </div>
