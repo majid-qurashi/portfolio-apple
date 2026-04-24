@@ -9,8 +9,8 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/react": "^5.0.1",
-    "@astrojs/sitemap": "^4.0.1",
+    "@astrojs/react": "^5.0.4",
+    "@astrojs/sitemap": "^3.7.2",
     "@astrojs/vercel": "^10.0.5",
     "@astrolib/seo": "^1.0.0-beta.8",
     "@tailwindcss/vite": "^4.0.3",
