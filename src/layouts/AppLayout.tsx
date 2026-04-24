@@ -14,6 +14,7 @@ import CustomCursor from '../components/global/CustomCursor';
 import Spotlight from '../components/global/Spotlight';
 import ControlCenter from '../components/global/ControlCenter';
 import DynamicIsland from '../components/global/DynamicIsland';
+import NotificationSystem from '../components/global/NotificationSystem';
 import { userConfig } from '../config/userConfig';
 import majidImg from '../assets/images/majid.jpg';
 import { FaFileDownload } from 'react-icons/fa';
@@ -223,6 +224,7 @@ export default function Desktop({ initialBg, backgroundMap }: AppLayoutProps) {
               showGitHub ? 'Projects' : 
               showResume ? 'Resume' : null
             } />
+            <NotificationSystem />
             
             {/* Optional backdrop image if you want to mix it with the dynamic background */}
             <div

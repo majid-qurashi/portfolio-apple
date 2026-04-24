@@ -185,7 +185,7 @@ const GitHubViewer: React.FC<GitHubViewerProps> = ({ isOpen, onClose }) => {
                     </div>
                     <div className="flex gap-4">
                       <a
-                        href={project.repoUrl}
+                        href={userConfig.social.github}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="flex items-center gap-2 text-sm hover:text-blue-500"
@@ -193,7 +193,7 @@ const GitHubViewer: React.FC<GitHubViewerProps> = ({ isOpen, onClose }) => {
                         onClick={(e) => e.stopPropagation()}
                       >
                         <FaGithub />
-                        <span>Repository</span>
+                        <span>Profile</span>
                       </a>
                       {project.liveUrl && (
                         <a
@@ -274,17 +274,17 @@ const GitHubViewer: React.FC<GitHubViewerProps> = ({ isOpen, onClose }) => {
                         </div>
                       )}
                     </div>
-                    {selectedProject.repoUrl && (
+                    {userConfig.social.github && (
                       <div className="mt-4">
                         <a
-                          href={selectedProject.repoUrl}
+                          href={userConfig.social.github}
                           target="_blank"
                           rel="noopener noreferrer"
                           style={{ backgroundColor: 'var(--btn-bg)', color: 'var(--text-primary)', borderColor: 'var(--glass-border)' }}
                           className="flex items-center gap-2 text-sm hover:opacity-80 p-2 rounded-lg border transition-opacity"
                         >
                           <FaGithub />
-                          <span>Visit GitHub Repository</span>
+                          <span>Visit GitHub Profile</span>
                         </a>
                       </div>
                     )}
