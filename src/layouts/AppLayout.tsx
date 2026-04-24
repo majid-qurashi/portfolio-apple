@@ -73,8 +73,8 @@ export default function Desktop({ initialBg, backgroundMap }: AppLayoutProps) {
       setCurrentBg(newBg);
     }
 
-    // Only show tutorial if user hasn't completed it before
-    if (!hasCompletedTutorial && isBooted) {
+    // Only show tutorial if user hasn't completed it before and is on a big screen
+    if (!hasCompletedTutorial && isBooted && window.innerWidth > 1024) {
       setShowTutorial(true);
     }
 
@@ -354,7 +354,7 @@ export default function Desktop({ initialBg, backgroundMap }: AppLayoutProps) {
             </div>
 
             {showTutorial && (
-              <div className="fixed right-4 top-1/2 transform -translate-y-1/2 z-50">
+              <div className="fixed right-4 top-1/2 transform -translate-y-1/2 z-50 hidden lg:block">
                 <div className="glass-dark text-white p-4 rounded-xl shadow-2xl max-w-xs animate-fade-in border border-white/10">
                   <h3 className="text-lg font-semibold mb-2">{tutorialSteps[currentTutorialStep].title}</h3>
                   <p className="text-sm text-gray-300 mb-4">
