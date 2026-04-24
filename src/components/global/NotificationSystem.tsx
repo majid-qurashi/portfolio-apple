@@ -2,31 +2,29 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { IoNotifications, IoClose } from 'react-icons/io5';
 
-const notifications = [
-  { id: 1, title: "System Tip", message: "Press Cmd + K to open the Quick Hub!", icon: "🚀" },
-  { id: 2, title: "Achievement", message: "Majid just completed a new project in React!", icon: "🏆" },
-  { id: 3, title: "Notice", message: "Check out the Resume in the top right corner.", icon: "📄" },
-  { id: 4, title: "Status", message: "Majid is currently open for new opportunities!", icon: "✨" },
-];
+const hiringNotification = { 
+  id: 1, 
+  title: "Opportunities", 
+  message: "Majid is currently open for new opportunities!", 
+  icon: "✨" 
+};
 
 export default function NotificationSystem() {
-  const [currentNotification, setCurrentNotification] = useState<typeof notifications[0] | null>(null);
-  const [index, setIndex] = useState(0);
+  const [currentNotification, setCurrentNotification] = useState<typeof hiringNotification | null>(null);
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentNotification(notifications[index]);
-      setIndex((prev) => (prev + 1) % notifications.length);
+    // Show single notification after 15 seconds
+    const showTimer = setTimeout(() => {
+      setCurrentNotification(hiringNotification);
 
-      // Hide after 5 seconds
+      // Hide it after 6 seconds
       setTimeout(() => {
         setCurrentNotification(null);
-      }, 5000);
+      }, 6000);
+    }, 15000);
 
-    }, 15000); // Show every 15 seconds
-
-    return () => clearInterval(timer);
-  }, [index]);
+    return () => clearTimeout(showTimer);
+  }, []);
 
   return (
     <div className="fixed top-16 right-6 z-[2000] pointer-events-none">
