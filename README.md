@@ -11,7 +11,7 @@ A modern and interactive portfolio website with a macOS-inspired interface.
 - Notes section for storytelling content  
 - Fully responsive design  
 - SEO optimized  
-- TypeScript support  
+- TypeScript support 
 - Ready for Vercel deployment  
 
 ## 🛠️ Tech Stack
@@ -29,6 +29,7 @@ Clone the repository:
 ```bash
 git clone https://github.com/your-username/portfolio
 cd portfolio
+```
 
 ## 👨‍💻 Developer
 
