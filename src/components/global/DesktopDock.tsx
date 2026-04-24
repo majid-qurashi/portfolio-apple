@@ -1,11 +1,10 @@
 import * as React from 'react';
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { BsGithub, BsSpotify, BsFilePdf, BsStickyFill, BsLinkedin, BsCalendar } from 'react-icons/bs';
+import { BsGithub, BsFilePdf, BsStickyFill, BsLinkedin, BsCalendar } from 'react-icons/bs';
 import { IoIosCall, IoIosMail } from 'react-icons/io';
 import { FaLink } from 'react-icons/fa';
 import ResumeViewer from './ResumeViewer';
-import SpotifyPlayer from './SpotifyPlayer';
 import { userConfig } from '../../config/userConfig';
 import { RiTerminalFill } from 'react-icons/ri';
 
@@ -24,13 +23,11 @@ interface DesktopDockProps {
   onNotesClick: () => void;
   onGitHubClick: () => void;
   onResumeClick: () => void;
-  onSpotifyClick: () => void;
   activeApps: {
     terminal: boolean;
     notes: boolean;
     github: boolean;
     resume: boolean;
-    spotify: boolean;
   };
 }
 
@@ -38,8 +35,7 @@ const DesktopDock = ({
   onTerminalClick, 
   onNotesClick, 
   onGitHubClick, 
-  onResumeClick, 
-  onSpotifyClick, 
+  onResumeClick,
   activeApps 
 }: DesktopDockProps) => {
   const [hoveredIcon, setHoveredIcon] = useState<string | null>(null);

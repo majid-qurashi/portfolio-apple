@@ -1,5 +1,5 @@
 import * as React from "react";
-import { BsGithub, BsSpotify, BsLinkedin } from 'react-icons/bs';
+import { BsGithub, BsLinkedin } from 'react-icons/bs';
 import { IoIosMail, IoIosCall } from 'react-icons/io';
 import { userConfig } from '../../config/userConfig';
 import { BsStickyFill } from 'react-icons/bs';
@@ -18,9 +18,6 @@ export default function MobileDock({ onGitHubClick, onNotesClick, onResumeClick,
     window.location.href = `mailto:${userConfig.contact.email}`;
   };
 
-  const handleSpotifyClick = () => {
-    window.open(`https://open.spotify.com/playlist/${userConfig.spotify.playlistId}`, '_blank');
-  };
 
   return (
     <div className='fixed bottom-6 left-1/2 -translate-x-1/2 w-[92%] max-w-sm md:hidden z-50'>

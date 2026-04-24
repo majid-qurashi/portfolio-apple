@@ -25,12 +25,6 @@ export const userConfig = {
     calendly: "https://calendly.com/majidqurashi", // Add your Calendly URL
   },
 
-  // Spotify Configuration
-  spotify: {
-    playlistId: "5WsS94KKm5wDhgEpg8VcgM", // Your Spotify playlist ID
-    playlistName: "Coding-Time",
-  },
-
   // Resume Configuration
   resume: {
     url: "https://cv-majid.netlify.app/",
@@ -261,8 +255,11 @@ export const userConfig = {
   seo: {
     title: "Majid Qurashi - Web Developer",
     description:
-      "Software Developer based in Kashmir specializing in React, Next.js, and modern web technologies",
+      "Majid Yaseen Qurashi (ermajid) - Software Developer based in Kashmir specializing in React, Next.js, and modern web technologies",
     keywords: [
+      "Majid Qurashi",
+      "Majid Yaseen Qurashi",
+      "ermajid",
       "Software Developer",
       "React",
       "Node.js",
@@ -275,7 +272,7 @@ export const userConfig = {
 
   // Theme Configuration
   theme: {
-    primaryColor: "#1ED760", // Spotify green
+    primaryColor: "#007AFF", // iOS Blue
     secondaryColor: "#1d1d1f",
     accentColor: "#007AFF",
   },

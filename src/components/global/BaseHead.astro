@@ -15,6 +15,14 @@ const backgrounds = await Promise.all([
 ]);
 ---
 
+<!-- 
+  Developed by: Majid Qurashi (Majid Yaseen Qurashi)
+  Handle: @ermajid
+  Website: qurashi.vercel.app
+  All code and logic in this portfolio has been meticulously crafted by Majid Qurashi.
+  If you're reading this, thanks for inspecting my work!
+-->
+
 <!-- Core meta tags -->
 <meta charset='UTF-8' />
 <meta http-equiv='X-UA-Compatible' content='IE=edge' />
@@ -23,6 +31,7 @@ const backgrounds = await Promise.all([
   content='width=device-width, initial-scale=1, maximum-scale=1'
 />
 <meta name='author' content={userConfig.name} />
+<meta name='keywords' content={userConfig.seo.keywords.join(', ')} />
 
 <!-- SEO Configuration -->
 <AstroSeo

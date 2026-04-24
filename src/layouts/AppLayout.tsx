@@ -11,7 +11,6 @@ import ResumeViewer from '../components/global/ResumeViewer';
 import DynamicBackground from '../components/global/DynamicBackground';
 import BootSequence from '../components/global/BootSequence';
 import CustomCursor from '../components/global/CustomCursor';
-import SpotifyPlayer from '../components/global/SpotifyPlayer';
 import { userConfig } from '../config/userConfig';
 import majidImg from '../assets/images/majid.jpg';
 import { FaFileDownload } from 'react-icons/fa';
@@ -34,7 +33,6 @@ export default function Desktop({ initialBg, backgroundMap }: AppLayoutProps) {
   const [showNotes, setShowNotes] = useState(false);
   const [showGitHub, setShowGitHub] = useState(false);
   const [showResume, setShowResume] = useState(false);
-  const [showSpotify, setShowSpotify] = useState(false);
   const [isBooted, setIsBooted] = useState(false);
   const [currentTutorialStep, setCurrentTutorialStep] = useState(0);
   const [showTutorial, setShowTutorial] = useState(false);
@@ -52,6 +50,20 @@ export default function Desktop({ initialBg, backgroundMap }: AppLayoutProps) {
       setCurrentRoleIndex((prev) => (prev + 1) % roles.length);
     }, 3000);
     return () => clearInterval(timer);
+  }, []);
+
+  useEffect(() => {
+    console.log(
+      "%c Developed by Majid Qurashi %c",
+      "background: #007AFF; color: #fff; padding: 5px 10px; border-radius: 5px; font-weight: bold; font-size: 14px;",
+      "background: transparent; color: inherit;"
+    );
+    console.log(
+      "%c This entire portfolio and its underlying code were written from scratch by Majid Qurashi (Majid Yaseen Qurashi). %c",
+      "color: #007AFF; font-weight: bold;",
+      "color: inherit;"
+    );
+    console.log("Connect with me: https://github.com/majid-qurashi");
   }, []);
 
   const [activeApps, setActiveApps] = useState({
